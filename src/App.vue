@@ -1,4 +1,4 @@
-<template>
+<template lang="pug">
   <div id="app">
     <img src="./assets/logo.png">
     <router-view/>
@@ -11,7 +11,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="stylus">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -4,7 +4,9 @@
     <h2>Essential Links</h2>
     <ul>
       <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
+      
     </ul>
+    <el-input v-model="input" placeholder="请输入内容"></el-input>
     <h2>Ecosystem</h2>
     <ul>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
@@ -17,7 +19,8 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      input:''
     }
   }
 }
