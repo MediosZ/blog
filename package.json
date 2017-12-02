@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "element-ui": "^2.0.5",
+    "github-markdown-css": "^2.9.0",
+    "marked": "^0.3.6",
     "pug": "^2.0.0-rc.4",
     "pug-cli": "^1.0.0-alpha6",
     "stylus": "^0.54.5",

@@ -1,6 +1,5 @@
 <template lang="pug">
   <div id="app">
-    <img src="./assets/logo.png" class="first-img">
     <router-view/>
   </div>
 </template>
