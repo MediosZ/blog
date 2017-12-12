@@ -5,8 +5,8 @@
     .container
       .raw
         textarea.raw-input(v-model="raw_text" placeholder="please input your code")
-      .marked(v-html="marked_text")
-        p.marked-text {{marked_text}}
+      .markdown-body(v-html="marked_text")
+
 
 
 </template>
@@ -38,6 +38,8 @@
 
 </script>
 <style lang="stylus" scoped>
+  @import "../markdown.styl"
+
   #Markdown
     .subtitle
       background-color #eee
@@ -53,7 +55,7 @@
         .raw-input
           width 100%
           height 800px
-      .marked
+      .markdown-body
         flex 0 0 50%
 
 </style>

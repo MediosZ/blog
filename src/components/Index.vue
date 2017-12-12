@@ -4,13 +4,32 @@
       h1.greet Welcome to the site
       p.sub-greet this is a web page based on vue.js
     .content
-      .card(v-for="card in cards")
+      .row-one
+        .blog.box
+        .container.box
+          .one-one
+          .one-two
+        p row one
+      .row-two
+        p row two
+      .row-three
+        p row three
+
+      //.card(v-for="card in cards")
         p.name {{card.name}}
         router-link.web(:to="card.link") to {{card.name}}
 </template>
 
 <script>
+import $ from '../../static/jquery-3.2.1.min.js'
+
+$(document).ready(function(){
+  console.log("document is ready");
+  $(".box").css('height', $(".box").css('width'));
+})
+
 export default{
+
   name: 'Index',
   data(){
     return {
@@ -33,7 +52,8 @@ export default{
         }
       ]
     }
-  }
+  },
+
 }
 </script>
 
@@ -48,10 +68,30 @@ export default{
     .sub-greet
       color #666
       font-size 20px
+  .container
+    border solid thin black
+    margin 25px 5px
+    flex 0 0 50%
   .content
     display flex
     margin 15p
     justify-content space-around
+    flex-direction column
+
+    .row-one
+      display flex
+      height auto
+      margin 0 5px
+      border thin solid black
+      .blog
+        flex 0 0 50%
+        border black solid
+        margin 25px
+      .container
+        flex 0 0 0
+
+      p
+        vertical-align middle
     .card
       background-color #eee
       box-shadow 5px 5px #ddd
