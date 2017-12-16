@@ -18,7 +18,8 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue2-animate": "^1.0.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

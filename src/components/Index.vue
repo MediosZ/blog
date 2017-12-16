@@ -1,19 +1,27 @@
 <template lang="pug">
   #Index
     .subtitle
-      h1.greet Welcome to the site
-      p.sub-greet this is a web page based on vue.js
+      h1.greet Welcome to the Avalon
+      p.sub-greet Based on vue.js
     .content
       .row-one
-        .blog.box
-        .container.box
-          .one-one
-          .one-two
-        p row one
+        .blog.active(@click="show = !show")
+          transition(name="slide-fade")
+            a.text(v-if="show==true" href="http://www.mediosz.club" target="blank") Blog
+        .container
+          .sub-one.active(@click="show = !show")
+            transition(name="slide-fade")
+              a(v-if="show==true") RegEx Playground
+          .sub-one.active(@click="show = !show")
+            transition(name="slide-fade")
+              a(v-if="show==true") Markdown Pool
       .row-two
-        p row two
-      .row-three
-        p row three
+        .avalon.active(@click="show = !show")
+          transition(name="bounce")
+            a(v-if="show==true" href="http://blog.mediosz.club" target="blank") Avalon
+        .something.active(@click="show = !show")
+          transition(name="slide-fade")
+            a(v-if="show==true") NULL
 
       //.card(v-for="card in cards")
         p.name {{card.name}}
@@ -22,35 +30,21 @@
 
 <script>
 import $ from '../../static/jquery-3.2.1.min.js'
-
+import '../../static/animate.css'
+import 'vue2-animate/dist/vue2-animate.min.css'
+/*
 $(document).ready(function(){
   console.log("document is ready");
-  $(".box").css('height', $(".box").css('width'));
-})
+  $(".greet").css('color', '#000');
+})*/
 
 export default{
 
   name: 'Index',
   data(){
     return {
-      msg:'test msg',
-      cards: [
-        {
-          name: 'test',
-          link: 'hello',
-          img: ''
-        },
-        {
-          name: 'test1',
-          link: 'hello',
-          img: ''
-        },
-        {
-          name: 'test2',
-          link: 'hello',
-          img: ''
-        }
-      ]
+      msg: 'test msg',
+      show: 'false'
     }
   },
 
@@ -58,52 +52,131 @@ export default{
 </script>
 
 <style lang="stylus">
+  body
+    background-color #353636
+    background-image:url('../../static/back2.jpg')
+    background-repeat no-repeat
+    background-size cover
+  a
+    text-decoration none
+    color orange
+    font-size 50px
+    background-color #446c7a
+  .active:hover
+      background-color #446c7a
+      box-shadow 8px 12px #ffffff
+
+
   .subtitle
-    background-color #eee
-    box-shadow 5px 5px #dddddd
-    margin 15px
+    background-color #57859b
+    //box-shadow 5px 5px #dddddd
+    margin 0 15px
     .greet
-      color #333
+      color orange
       font-size 40px
     .sub-greet
-      color #666
+      color #afafaf
       font-size 20px
-  .container
-    border solid thin black
-    margin 25px 5px
-    flex 0 0 50%
   .content
+
     display flex
-    margin 15p
     justify-content space-around
     flex-direction column
-
     .row-one
       display flex
       height auto
       margin 0 5px
-      border thin solid black
-      .blog
-        flex 0 0 50%
-        border black solid
-        margin 25px
-      .container
-        flex 0 0 0
 
-      p
-        vertical-align middle
-    .card
-      background-color #eee
-      box-shadow 5px 5px #ddd
-      min-width 100px
-      max-width 500px
-      flex 0 0 0
-      .name
-        font-size 25px
-        color blue
-      .web
-        text-decoration none
-        color blue
-        font-size 20px
+      .text
+        font-size 65px
+      .blog
+        flex 1 1 65%
+        //border black solid thin
+        margin 25px 10px
+        height 250px
+        //box-shadow 5px 8px #aaa
+        display flex
+        align-items center
+        justify-content center
+
+      .container
+        flex 1 0 25%
+        //border solid thin black
+        margin 25px 10px
+        height 250px
+        //box-shadow 5px 8px #aaa
+        display flex
+        flex-direction column
+        align-items stretch
+        justify-content center
+        .sub-one
+          display flex
+          min-height 100px
+          align-items center
+          justify-content center
+          margin 5px
+          p
+            font-size 30px
+            color orange
+    .row-two
+      display flex
+      height auto
+      margin 0 5px
+      //border black thin solid
+      .avalon
+        flex 1 1 40%
+        //border black solid thin
+        margin 25px 10px
+        height 250px
+        //box-shadow 5px 8px #aaa
+        display flex
+        align-items center
+        justify-content center
+
+        p
+          font-size 50px
+          color orange
+
+      .something
+        flex 1 0 60%
+        //border solid thin black
+        margin 25px 10px
+        height 250px
+        //box-shadow 5px 8px #aaa
+        display flex
+        flex-direction column
+        align-items center
+        justify-content center
+
+        p
+          font-size 50px
+          color orange
+
+  .slide-fade-enter-active
+    transition: all .3s ease;
+
+  .slide-fade-leave-active
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+
+  .slide-fade-enter, .slide-fade-leave-to
+    transform: translateX(10px);
+    opacity: 0;
+
+  .bounce-enter-active
+    animation: bounce-in .5s;
+
+  .bounce-leave-active
+    animation: bounce-in .5s reverse;
+
+  @keyframes bounce-in
+    0%
+      transform: scale(0);
+
+    50%
+      transform: scale(1.5);
+
+    100%
+      transform: scale(1);
+
 
 </style>
