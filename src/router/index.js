@@ -16,18 +16,13 @@ export default new Router({
     },
     {
       path: '/',
-      name: 'Index',
-      component: Index
+      name: 'Welcome',
+      component: test
     },
     {
       path: '/markdown',
       name: 'Markdown',
       component: Markdown
-    },
-    {
-      path: '/test',
-      name: 'test',
-      component: test
     }
   ]
 })

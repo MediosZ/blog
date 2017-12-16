@@ -12,12 +12,11 @@
 </template>
 <script>
 
-  import ElInput from "../../node_modules/element-ui/packages/input/src/input.vue";
   import Marked from 'marked'
 
 
   export default {
-    components: {Marked, ElInput},
+    components: {Marked},
     data() {
       return {
         raw_text: ''
