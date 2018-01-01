@@ -51,7 +51,7 @@ export default{
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
   body
     background-color #353636
     background-image:url('../../static/back2.jpg')

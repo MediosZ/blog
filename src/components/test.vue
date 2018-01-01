@@ -1,40 +1,52 @@
 <template lang="pug">
   #test
-    .left
-      .navigation
-        h1 Avalon
-      .detail
-        .pagebar
-          p {{num}}
-          p.line
-          p {{sum}}
-        .subtitle
-          transition(name="bounce")
-            h1.title(v-if="num == 0") {{content[num].title}}
-            h1.title(v-if="num == 1") {{content[num].title}}
-            h1.title(v-if="num == 2") {{content[num].title}}
-            h1.title(v-if="num == 3") {{content[num].title}}
-        .content
-          p {{content[num].detail}}
-        .buttons
-          img.btn(src="../../static/up.png", @click="down")
-          img.btn(src="../../static/down.png", @click="up")
-    .right
-      img.imgs(:src="content[num].img")
-      .footbar
-        .img-detail
-          h2 {{content[num].more[0].title}}
-          p {{content[num].more[0].text}}
-        .more
-          p 想要了解更多?
+    .shade
+      h1.shade-title Avalon
+      el-button.remove-shade(type="info") open the gate
+    .real
+      .left
+        .navigation
+          h1 Avalon
+        .detail
+          .pagebar
+            transition(name="fade" mode="in-out")
+              p(:key="num") {{num}}
+            p.line
+            p {{sum}}
+          .subtitle
+            transition(name="slide-fade")
+              h1.title(:key="num") {{content[num].title}}
+          .content
+            transition(name="slide-fade")
+              p(:key="num") {{content[num].detail}}
+          .buttons
+            el-button.btn(type="info" plain round="true", @click="up") UP
+            el-button.btn(type="info" plain round="true", @click="down") DN
+            //img.btn(src="../../static/up.png", @click="down")
+            //img.btn(src="../../static/down.png", @click="up")
+      .right
+        //transition(name="fade")
+        img.imgs(:src="content[num].img", :key="num")
+        //.imgsa
+        .footbar
+          .img-detail
+            transition(name="bounce")
+              h2(:key="num") {{content[num].more[0].title}}
+            transition(name="bounce")
+              p(:key="num") {{content[num].more[0].text}}
+          .more
+            p 想要了解更多?
 
 
 </template>
 
 <script>
-  import $ from '../../static/jquery-3.2.1.min.js'
-  import '../../static/animate.css'
-  import 'vue2-animate/dist/vue2-animate.min.css'
+  import $ from '../../static/jquery-3.2.1.js'
+  import ElButton from "../../node_modules/element-ui/packages/button/src/button.vue";
+
+
+  //import '../../static/animate.css'
+  //import 'vue2-animate/dist/vue2-animate.min.css'
   /*
   $(document).ready(function(){
     console.log("document is ready");
@@ -43,6 +55,7 @@
 
   export default{
 
+    components: {ElButton},
     name: 'Index',
     data(){
       return {
@@ -124,17 +137,80 @@
       }
 
     }
-
   }
+  $(document).ready(function(){
+    let root = $("#test");
+    let rwidth = root.width();
+    let sheight = screen.height;
+    $(".shade").css("width", rwidth).css("height", "auto");
+    //console.log("ready");
+    $(".remove-shade").click(function () {
+      //$(".shade").css("display", "none");
+      let title = $(".shade-title");
+      let shade = $(".shade");
+      let test = $("#test");
+      $(".real").css("display", "flex");
+      $(".remove-shade").css("display", "none");
+      test.css("z-index", 0);
+      test.css("background-color", "#fff");
+
+      title.animate({"font-size":'30px', "margin-left":"45px", "display":"block"}, "slow");
+      title.css("text-align", "left");
+
+      shade.animate({"height":'100px', "float": 'left', "opacity":"0"},"slow");
+      //shade.animate({"opacity": "0"}, "fast");
+
+
+      //console.log("hello");
+    });
+  });
+
+
+
+
 </script>
 
 <style lang="stylus">
   #test
-    display flex
-    margin 30px
-    min-height 500px
-    box-shadow 0 20px 50px 3px #666
+    background-color #333
+    z-index 2
+    opacity 1
 
+    .slide-fade-enter-active {
+      transition: all .5s ease;
+    }
+    .slide-fade-leave-active {
+      transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+    .slide-fade-enter, .slide-fade-leave-to{
+      //transform: translateX(10px);
+      opacity: .3;
+    }
+    .fade-leave, .fade-leave-active {
+      ransition: all .5s ease;
+    }
+
+    .shade
+      width auto
+      height auto
+      position absolute
+      vertical-align middle
+      z-index 3
+      //box-shadow 0 20px 50px 3px #666
+
+      h1
+        font-size 100px
+        vertical-align middle
+
+      .remove-shade
+        margin 200px
+
+
+    .real
+      display none
+      margin 30px
+      min-height 600px
+      box-shadow 0 20px 50px 3px #666
     .left
       flex 0 0 50%
       display flex
@@ -172,8 +248,12 @@
             margin 0 10px
 
         .subtitle
+          display flex
+          flex-direction row
+          justify-content center
           .title
-            font-size 70px
+            font-size 40px
+            //position fixed
 
         .content
           min-height 100px
@@ -187,7 +267,7 @@
           justify-content flex-start
           .btn
             height 35px
-            margin 0 10px
+            margin 100px 10px 0
 
     .right
       flex 0 0 50%
@@ -195,6 +275,12 @@
         width 100%
         height 75%
         object-fit cover
+        //position absolute
+      .imgsa
+        width 100%
+        height 75%
+        object-fit cover
+        //position absolute
 
       .footbar
         height 25%
