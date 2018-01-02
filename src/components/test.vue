@@ -9,19 +9,19 @@
           h1 Avalon
         .detail
           .pagebar
-            transition(name="fade" mode="in-out")
-              p(:key="num") {{num}}
+            //transition(name="fade" mode="in-out")
+            p(:key="num").num {{num}}
             p.line
             p {{sum}}
           .subtitle
-            transition(name="slide-fade")
-              h1.title(:key="num") {{content[num].title}}
+            //transition(name="slide-fade")
+            h1.title(:key="num") {{content[num].title}}
           .content
-            transition(name="slide-fade")
-              p(:key="num") {{content[num].detail}}
+            //transition(name="slide-fade")
+            p(:key="num").icontent {{content[num].detail}}
           .buttons
-            el-button.btn(type="info" plain round="true", @click="up") UP
-            el-button.btn(type="info" plain round="true", @click="down") DN
+            el-button.btn(type="info" plain round=true, @click="up") UP
+            el-button.btn(type="info" plain round=true, @click="down") DN
             //img.btn(src="../../static/up.png", @click="down")
             //img.btn(src="../../static/down.png", @click="up")
       .right
@@ -30,10 +30,10 @@
         //.imgsa
         .footbar
           .img-detail
-            transition(name="bounce")
-              h2(:key="num") {{content[num].more[0].title}}
-            transition(name="bounce")
-              p(:key="num") {{content[num].more[0].text}}
+            //transition(name="bounce")
+            h2(:key="num").idetail {{content[num].more[0].title}}
+            //transition(name="bounce")
+            p(:key="num").idetail {{content[num].more[0].text}}
           .more
             p 想要了解更多?
 
@@ -59,9 +59,9 @@
     name: 'Index',
     data(){
       return {
-        show: 'false',
-        num: '0',
-        sum: '3',
+        show: false,
+        num: 0,
+        sum: 3,
         content: [
           {
             title: '博客',
@@ -128,10 +128,50 @@
     },
     methods: {
       up : function () {
-        this.num++;
-        this.num = this.num <= this.sum ? this.num : this.sum;
+        if(this.num === 0){
+          return;
+        }
+        let image = $(".imgs");
+        let that = this;
+        $(".idetail").animate({opacity:"0"});
+        $(".icontent").animate({opacity:"0"});
+        $(".title").animate({opacity:"0"});
+        $(".num").animate({opacity:"0"});
+        image.animate({opacity:"0.3"}, function (){
+          that.num--;
+          that.num = that.num >= 0 ? that.num : 0;
+
+          //console.log("up");
+          //console.log(that.num);
+          //image.animate({opacity:"1"}, "slow");
+        });
+
         },
       down : function(){
+        if(this.num === this.sum){
+          return;
+        }
+        let image = $(".imgs");
+        let that = this;
+        $(".idetail").animate({opacity:"0"});
+        $(".icontent").animate({opacity:"0"});
+        $(".title").animate({opacity:"0"});
+        $(".num").animate({opacity:"0"});
+        image.animate({opacity:"0.3"}, function () {
+          that.num++;
+          that.num = that.num <= that.sum ? that.num : that.sum;
+
+          //console.log("down");
+          //console.log(that.num);
+          //image.animate({opacity:"1"}, "slow");
+        });
+
+      },
+      numup : function () {
+        this.num++;
+        this.num = this.num <= this.sum ? this.num : this.sum;
+      },
+      numdown : function(){
         this.num--;
         this.num = this.num >= 0 ? this.num : 0;
       }
@@ -288,7 +328,7 @@
 
         .img-detail
           flex 1 0 50%
-          margin-top -50px
+          margin-top -5px
           margin-bottom 4px
           display flex
           flex-direction column
@@ -299,7 +339,7 @@
             color #ddd
 
         .more
-          margin-top -4px
+          margin-top -5px
           margin-bottom 4px
           flex 0 0 30%
           display flex
