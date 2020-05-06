@@ -1,0 +1,16 @@
+{
+  "name": "vuepress-blog",
+  "version": "1.0.0",
+  "description": "A static blog based on vuepress",
+  "main": "index.js",
+  "repository": "placeholder",
+  "author": "Tricster",
+  "license": "MIT",
+  "dependencies": {
+    "vuepress": "^1.4.1"
+  },
+  "scripts": {
+    "dev": "vuepress dev content",
+    "build": "vuepress build content"
+  }
+}
