@@ -3,5 +3,6 @@ module.exports = {
     description: 'Just playing around',
     base: "/blog/",
     dest: "public",
-    
+    themeConfig: {
+    }
   }

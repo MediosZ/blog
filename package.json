@@ -7,10 +7,20 @@
   "author": "Tricster",
   "license": "MIT",
   "dependencies": {
-    "vuepress": "^1.4.1"
+    "@vuepress/plugin-blog": "^1.9.2",
+    "@vuepress/plugin-medium-zoom": "1.0.0",
+    "@vuepress/plugin-nprogress": "1.0.0",
+    "@vuepress/plugin-pwa": "1.0.0",
+    "@vuepress/plugin-search": "1.0.0",
+    "dayjs": "^1.8.19",
+    "remove-markdown": "^0.3.0",
+    "vue-feather-icons": "^4.21.0",
+    "vuepress": "^1.4.1",
+    "vuepress-plugin-smooth-scroll": "^0.0.9"
   },
   "scripts": {
-    "dev": "vuepress dev content",
+    "dev": "vuepress dev content --temp content/.temp",
     "build": "vuepress build content"
-  }
+  },
+  "devDependencies": {}
 }
