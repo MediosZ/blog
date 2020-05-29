@@ -23,4 +23,4 @@ deploy:
     - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_dsa
     - chmod 600 ~/.ssh/id_dsa
     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-    - rsync -rav --delete public/ gitlab@mediosz.club:/www/
+    - rsync -rav --delete public/ gitlab@"$server":/www/
