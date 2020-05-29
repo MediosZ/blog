@@ -17,10 +17,15 @@ build:
 deploy:
   image: alpine
   stage: deploy
+  before_script:
+  - 'which ssh-agent || ( apk add --no-cache openssh )'
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
   script:
     - apk add --no-cache rsync openssh
-    - mkdir -p ~/.ssh
     - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa
-    - chmod 600 ~/.ssh/id_rsa
+    - chmod 700 ~/.ssh/id_rsa
     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
     - rsync -rav --delete public/ gitlab@"$server":/www/
