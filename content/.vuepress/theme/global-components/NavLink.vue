@@ -1,27 +1,18 @@
-<template>
-  <router-link
+<template lang="pug">
+  router-link.nav-link(
     v-if="!isExternal(normalizedlink)"
-    class="nav-link"
     :to="normalizedlink"
     :exact="exact"
-  >
-    <slot />
-  </router-link>
-  <a
+  )
+    slot
+  a.nav-link.external(
     v-else
     :href="normalizedlink"
-    class="nav-link external"
-    :target="
-      isMailto(normalizedlink) || isTel(normalizedlink) ? null : '_blank'
-    "
-    :rel="
-      isMailto(normalizedlink) || isTel(normalizedlink)
-        ? null
-        : 'noopener noreferrer'
-    "
-  >
-    <slot />
-  </a>
+    class=""
+    :target="isMailto(normalizedlink) || isTel(normalizedlink) ? null : '_blank'"
+    :rel="isMailto(normalizedlink) || isTel(normalizedlink) ? null : 'noopener noreferrer'"
+  )
+    slot
 </template>
 
 <script>

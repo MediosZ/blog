@@ -1,74 +1,44 @@
-<template>
-  <div id="base-list-layout">
-    <div class="ui-posts" itemscope itemtype="http://schema.org/Blog">
-      <article
+<template lang="pug">
+  #base-list-layout
+    .ui-posts(itemscope itemtype="http://schema.org/Blog")
+      article.ui-post(
         v-for="page in pages"
         :key="page.key"
-        class="ui-post"
         itemprop="blogPost"
         itemscope
         itemtype="https://schema.org/BlogPosting"
-      >
-        <meta itemprop="mainEntityOfPage" :content="page.path" />
+      )
+        meta(itemprop="mainEntityOfPage" :content="page.path")
 
-        <header class="ui-post-title" itemprop="name headline">
-          <NavLink :link="page.path">{{ page.title }}</NavLink>
-        </header>
+        header.ui-post-title(itemprop="name headline")
+          NavLink(:link="page.path") {{ page.title }}
 
-        <p class="ui-post-summary" itemprop="description">
-          {{ page.frontmatter.summary || page.summary }}
-          <!-- <Content :page-key="page.key" slot-key="intro"/>-->
-        </p>
+        p.ui-post-summary(itemprop="description") {{ page.frontmatter.summary || page.summary }}
 
-        <footer>
-          <div
-            v-if="page.frontmatter.author"
-            class="ui-post-meta ui-post-author"
-            itemprop="publisher author"
-            itemtype="http://schema.org/Person"
-            itemscope
-          >
-            <NavigationIcon />
-            <span itemprop="name">{{ page.frontmatter.author }}</span>
-            <span v-if="page.frontmatter.location" itemprop="address">
-              &nbsp; in {{ page.frontmatter.location }}
-            </span>
-          </div>
-
-          <div v-if="page.frontmatter.date" class="ui-post-meta ui-post-date">
-            <ClockIcon />
-            <time
+        footer
+          .ui-post-meta.ui-post-date(v-if="page.frontmatter.date")
+            ClockIcon
+            time(
               pubdate
               itemprop="datePublished"
               :datetime="page.frontmatter.date"
-            >
-              {{ resolvePostDate(page.frontmatter.date) }}
-            </time>
-          </div>
+            ) {{ resolvePostDate(page.frontmatter.date) }}
 
-          <div
+          .ui-post-meta.ui-post-tag(
             v-if="page.frontmatter.tags"
-            class="ui-post-meta ui-post-tag"
             itemprop="keywords"
-          >
-            <TagIcon />
-            <router-link
+          )
+            TagIcon
+            router-link(
               v-for="tag in resolvePostTags(page.frontmatter.tags)"
               :key="tag"
               :to="'/tag/' + tag"
-            >
-              {{ tag }}
-            </router-link>
-          </div>
-        </footer>
-      </article>
-    </div>
+            ) {{ tag }}
 
-    <component
-      :is="paginationComponent"
-      v-if="$pagination.length > 1 && paginationComponent"
-    ></component>
-  </div>
+    component(:is="paginationComponent"
+      v-if="$pagination.length > 1 && paginationComponent")
+    
+
 </template>
 
 <script>
