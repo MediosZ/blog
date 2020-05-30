@@ -25,5 +25,6 @@ deploy:
   - chmod 700 ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\nHost *\n\tPort $port\n\n" > ~/.ssh/config'
   script:
+    - echo trigger deploy
     - apk add --no-cache rsync
     - rsync -rav --delete public/ gitlab@"$server":/www/$CI_PROJECT_NAME/
