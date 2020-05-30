@@ -9,6 +9,7 @@
     )
       NavigationIcon
       span(itemprop="name") {{ author }}
+      span(v-if="location" itemprop="address") &nbsp; in {{ location }}
     .post-meta-date(v-if="date")
       ClockIcon
       time(pubdate itemprop="datePublished" :datetime="date") {{ resolvedDate }}

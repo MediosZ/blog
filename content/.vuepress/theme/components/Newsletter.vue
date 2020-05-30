@@ -1,12 +1,11 @@
-<template>
-  <SimpleNewsletter v-slot="{ slotProps }">
-    <div class="newsletter__wrap">
-      <div class="newsletter__title">{{ slotProps.title }}</div>
-      <div class="newsletter__content">{{ slotProps.content }}</div>
-      <div class="newsletter__fields">
-        <input
+<template lang="pug">
+  SimpleNewsletter(v-slot="{ slotProps }")
+    .newsletter__wrap
+      .newsletter__title {{ slotProps.title }}
+      .newsletter__content {{ slotProps.content }}
+      .newsletter__fields
+        input.newsletter__input(
           v-model="slotProps.mail"
-          class="newsletter__input"
           type="email"
           name="email"
           aria-label="Email"
@@ -15,13 +14,8 @@
           autocapitalize="off"
           autocorrect="off"
           data-cy="email"
-        />
-        <button type="submit" class="newsletter__button" data-cy="submit">
-          {{ slotProps.submitText }}
-        </button>
-      </div>
-    </div>
-  </SimpleNewsletter>
+        )
+        button.newsletter__button(type="submit" data-cy="submit") {{ slotProps.submitText }}
 </template>
 
 <script>

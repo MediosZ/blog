@@ -1,6 +1,6 @@
 module.exports = {
-    title: 'Hello VuePress',
-    description: 'Just playing around',
+    title: 'Avalon',
+    description: 'Just a place called Avalon',
     base: "/",
     dest: "public",
     themeConfig: {
