@@ -7,7 +7,9 @@ module.exports = {
         '@vuepress/back-to-top',
         '@vuepress/nprogress',
         '@vuepress/medium-zoom',
-        'reading-progress',
+        ['reading-progress', {
+            readingDir: "_posts"
+        }],
     ],
     themeConfig: {
       footer: {
