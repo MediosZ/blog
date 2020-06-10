@@ -129,7 +129,7 @@ export default {
 
 .ui-post-summary
   font-size 14px
-  color rgba($darkTextColor, 0.54)
+  color rgba($darkTextColor, 0.80)
   font-weight 200
 
 .ui-post-meta
@@ -158,11 +158,11 @@ export default {
   font-weight 400
 
 .ui-post-date
-  color rgba($darkTextColor, 0.54)
+  color rgba($darkTextColor, 0.80)
   font-weight 200
 
 .ui-post-tag
-  color rgba($darkTextColor, 0.54)
+  color rgba($darkTextColor, 0.80)
   font-weight 200
 
   a

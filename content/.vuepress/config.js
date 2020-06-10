@@ -3,6 +3,12 @@ module.exports = {
     description: 'Just a place called Avalon',
     base: "/",
     dest: "public",
+    plugins: [
+        '@vuepress/back-to-top',
+        '@vuepress/nprogress',
+        '@vuepress/medium-zoom',
+        'reading-progress',
+    ],
     themeConfig: {
       footer: {
         contact: [ 
