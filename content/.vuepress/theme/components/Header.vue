@@ -37,7 +37,7 @@ export default {
 
 #header
   z-index 12
-  position fixed
+  position block
   top 0
   width 100vw
   height $headerHeight

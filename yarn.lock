@@ -1070,6 +1070,13 @@
   dependencies:
     lodash.debounce "^4.0.8"
 
+"@vuepress/plugin-back-to-top@^1.5.1":
+  version "1.5.1"
+  resolved "https://r.cnpmjs.org/@vuepress/plugin-back-to-top/download/@vuepress/plugin-back-to-top-1.5.1.tgz#bafd45267419ff54b46cbb2626500e4803ab1f13"
+  integrity sha1-uv1FJnQZ/1S0bLsmJlAOSAOrHxM=
+  dependencies:
+    lodash.debounce "^4.0.8"
+
 "@vuepress/plugin-blog@^1.9.2":
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-blog/-/plugin-blog-1.9.2.tgz#d463a218bf54b51a07b87eb703dc1cc9eddeef3c"
@@ -1091,24 +1098,24 @@
   dependencies:
     cross-spawn "^6.0.5"
 
-"@vuepress/plugin-medium-zoom@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-medium-zoom/-/plugin-medium-zoom-1.0.0.tgz#6dce6150608707fc44e60b7c9d4a0d27e493f2b5"
-  integrity sha512-ALjPi8CGLNKlViFPIWS2iD887hacYT28tLq3CaQOJaEP3/V6yv4kyqpDiX2kN7xB9TrIKjxnk1p916Ze3WX2zA==
+"@vuepress/plugin-medium-zoom@^1.5.1":
+  version "1.5.1"
+  resolved "https://r.cnpmjs.org/@vuepress/plugin-medium-zoom/download/@vuepress/plugin-medium-zoom-1.5.1.tgz#a641ce2ca8aa24d2f6a6b3f8d94d787c6eb85924"
+  integrity sha1-pkHOLKiqJNL2prP42U14fG64WSQ=
   dependencies:
-    medium-zoom "^0.4.0"
-
-"@vuepress/plugin-nprogress@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-nprogress/-/plugin-nprogress-1.0.0.tgz#a7777a54415cb6d6025e188c40180f8ec4e2837e"
-  integrity sha512-uXsqit9k4ZPXl3U+SYbBNwHe9q6XJnqDwYE1UDkCS619cU5GlW2A0crfrvlXyiKVrwZ2+QLkrwpdgSRDvXJMFA==
-  dependencies:
-    nprogress "^0.2.0"
+    medium-zoom "^1.0.4"
 
 "@vuepress/plugin-nprogress@1.4.1":
   version "1.4.1"
   resolved "https://r.cnpmjs.org/@vuepress/plugin-nprogress/download/@vuepress/plugin-nprogress-1.4.1.tgz#2a16217091102a2b4fddc1b09f5854ac4f80f992"
   integrity sha1-KhYhcJEQKitP3cGwn1hUrE+A+ZI=
+  dependencies:
+    nprogress "^0.2.0"
+
+"@vuepress/plugin-nprogress@^1.5.1":
+  version "1.5.1"
+  resolved "https://r.cnpmjs.org/@vuepress/plugin-nprogress/download/@vuepress/plugin-nprogress-1.5.1.tgz#0bd07d3b1f69798c10559400d521a36ee2b3d35a"
+  integrity sha1-C9B9Ox9peYwQVZQA1SGjbuKz01o=
   dependencies:
     nprogress "^0.2.0"
 
@@ -5063,10 +5070,10 @@ media-typer@0.3.0:
   resolved "https://r.cnpmjs.org/media-typer/download/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
 
-medium-zoom@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/medium-zoom/-/medium-zoom-0.4.0.tgz#8e13c9b754903c0c903220611af0d3cd373a4222"
-  integrity sha512-0z7yMfd6I1BTCAa8QaR4cp5AqDkQD571GzhHIbbfefKEssGLSvs+4Xai/itOAncm4FBlF5gUoMQ22yW9/f8Sig==
+medium-zoom@^1.0.4:
+  version "1.0.5"
+  resolved "https://r.cnpmjs.org/medium-zoom/download/medium-zoom-1.0.5.tgz#81413dda20ccdd857141ff420cfab788dd32e20e"
+  integrity sha1-gUE92iDM3YVxQf9CDPq3iN0y4g4=
 
 mem@^4.0.0:
   version "4.3.0"
@@ -8122,6 +8129,11 @@ vuepress-plugin-mailchimp@^1.4.1:
   dependencies:
     jsonp "^0.2.1"
     query-string "^6.9.0"
+
+vuepress-plugin-reading-progress@^1.0.9:
+  version "1.0.9"
+  resolved "https://r.cnpmjs.org/vuepress-plugin-reading-progress/download/vuepress-plugin-reading-progress-1.0.9.tgz#800cef1ed93abe9ab7aae0147d269d1b1359ef32"
+  integrity sha1-gAzvHtk6vpq3quAUfSadGxNZ7zI=
 
 vuepress-plugin-sitemap@^2.3.1:
   version "2.3.1"
