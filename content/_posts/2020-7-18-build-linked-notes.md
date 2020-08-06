@@ -55,4 +55,16 @@ location: Shanxi
 滚动的实现主要是通过计算每个NoteContainer的位置，来得到当前的滚动位置。
 然后利用一个滚动库来实现了滚动的动画。
 
+## update 2020-7-31
+
+经过了一些处理，notes可以投入使用了。
+主要是改进了一些界面上的效果，看起来更舒服一些。
+然后调整了一下滑动的部分，也加入了一些其他的动画，给标题添加了点击事件。
+另外也对移动端进行了适配，采取了不同的显示模式，来让移动端看起来整洁一些。
+今天也添加了首页，总算是一个可以正常使用的系统了。
+
+不过也还需要思考一下到底要怎么使用这个系统，要好好利用起来啊。
+具体的笔记模式，其实还是要参考**How to Take Smart Notes**[^book]，先把书读一遍。
+
 [^notes]: [Notes by Andy](https://https://notes.andymatuschak.org/)
+[^book]: [How to Take Smart Notes](https://www.amazon.com/How-Take-Smart-Notes-Nonfiction-ebook/dp/B06WVYW33Y)
