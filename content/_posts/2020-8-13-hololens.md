@@ -1,13 +1,11 @@
 ---
-title: Hololens
+title: Hololens And Mixed Reality
 date: 2020-8-13
 tags: 
   - prototype
 author: Tricter
 location: Shanxi
 ---
-
-# Hololens 和 Mixed Reality
 
 这几天拿到了Hololens，把玩了几天，记录一下。
 
