@@ -6,7 +6,12 @@ module.exports = {
     plugins: [
         '@vuepress/back-to-top',
         '@vuepress/nprogress',
-        '@vuepress/medium-zoom',
+        ['@vuepress/medium-zoom', {
+            selector: '.vuepress-blog-theme-content :not(a) > img',
+            options: {
+              margin: 16
+            }
+        }],
         ['reading-progress', {
             readingDir: "_posts"
         }],
