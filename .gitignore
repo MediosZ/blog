@@ -1,3 +1,4 @@
 /node_modules/
 /public/
 /content/.temp/
+.DS_Store
