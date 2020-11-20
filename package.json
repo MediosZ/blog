@@ -19,6 +19,7 @@
     "remove-markdown": "^0.3.0",
     "vue-feather-icons": "^4.21.0",
     "vuepress": "^1.4.1",
+    "vuepress-plugin-feed": "^0.1.9",
     "vuepress-plugin-reading-progress": "^1.0.9",
     "vuepress-plugin-smooth-scroll": "^0.0.9"
   },

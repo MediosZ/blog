@@ -1,3 +1,6 @@
+const feed_options = {
+  canonical_base: 'https://blog.mediosz.club/feed',
+};
 module.exports = {
     title: 'Avalon',
     description: 'Just a place called Avalon',
@@ -14,14 +17,19 @@ module.exports = {
         }],
         ['reading-progress', {
             readingDir: "_posts"
-        }],
+        }]
     ],
     themeConfig: {
       footer: {
+
         contact: [ 
           {
             type: 'gitlab',
             link: 'https://git.mediosz.club/Tric',
+          },
+          {
+            type: 'mail',
+            link: 'mailto:mediosrity@qq.com',
           },
 
         ],
@@ -32,6 +40,10 @@ module.exports = {
           },
         ],
       },
+      feed: {
+        canonical_base: 'https://blog.mediosz.club',
+      },
+      smoothScroll: true
     },
     markdown: {
       extendMarkdown: md => {
