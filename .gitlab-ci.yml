@@ -18,6 +18,8 @@ deploy:
   image: alpine
   stage: deploy
   before_script:
+  - sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
+  - apk update
   - 'which ssh-agent || ( apk add --no-cache openssh )'
   - eval $(ssh-agent -s)
   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
