@@ -28,6 +28,10 @@ module.exports = {
             link: 'https://git.mediosz.club/Tric',
           },
           {
+            type: 'github',
+            link: 'https://github.com/MediosZ',
+          },
+          {
             type: 'mail',
             link: 'mailto:mediosrity@qq.com',
           },
@@ -49,6 +53,10 @@ module.exports = {
       extendMarkdown: md => {
         // use more markdown-it plugins!
         md.use(require('markdown-it-footnote'))
+      },
+      extractHeaders: [ 'h1', 'h2', 'h3' ],
+      toc: {
+        includeLevel: [1, 2, 3]
       }
     }
   }
