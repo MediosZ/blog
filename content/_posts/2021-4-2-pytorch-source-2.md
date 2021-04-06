@@ -234,9 +234,98 @@ install(FILES ${CMAKE_BINARY_DIR}/c10/macros/cmake_macros.h
 
 ### caffe cmakelists
 
+为了不让文章过于冗长，我隐藏了很多与配置编译选项有关的代码，只保留了代码生成和库定义的代码，这些代码可以帮助我们梳理Pytorch编译的过程，帮助我们梳理Pytorch的结构，如果需要更详细的对于编译代码的分析，请读者自行阅读源码。
 
+让我们开始最核心的，位于`caffe2`文件夹中的`CMakeLists.txt`。
+
+首先，我们引入另一个子文件`${ROOT}/cmake/Codegen.cmake`，在这个文件中，Pytorch**动态生成**了ATen所需要的代码，这是一个很关键的点。关于ATen代码的动态生成，我们将在下一篇文章中介绍，在这里不展开讲解。
+
+生成部分源代码之后，Pytorch选择了ATen的并行后端，可供选择的后端有：
+
+1. NATIVE
+2. OMP -> OpenMP
+3. TBB
+
+之后开始了ATen的编译，我们通过`add_subdirectory(../aten aten)`进入ATen文件夹。在这里，我们并没有直接将ATen的源代码编译为一个独立的库，而是将所有ATen的源代码收集起来，然后传递回`caffe2`中，以供后续使用。
+
+一般来说，我们不需要用到`caffe2`，所以我们选择忽略掉大部分我们不需要的`caffe2`模块，只留下了：
+
+```bash 
+add_subdirectory(core)
+add_subdirectory(serialize)
+add_subdirectory(utils)
+add_subdirectory(perfkernels)
+add_subdirectory(proto)
+```
+
+我们之前收集的ATen源代码，会并入Cafee2的源代码，但由于我们没有包含`caffe2`模块，所以其他大部分代码还是ATen的，之后我们将ATen编译为`torch_cpu`，从这里开始真正构建`libtorch`。
+
+```bash 
+list(APPEND Caffe2_CPU_SRCS ${GENERATED_CXX_TORCH} ${GENERATED_H_TORCH})
+add_library(torch_cpu ${Caffe2_CPU_SRCS})
+```
+
+之后便是一些与`c10`中类似的结构，用于生成库，并为库添加依赖，如下代码所示：
+
+```bash
+# build torch_cpu 
+target_link_libraries(torch_cpu PUBLIC c10)
+caffe2_interface_library(torch_cpu torch_cpu_library)
+
+# build torch_cuda
+cuda_add_library(torch_cuda ${Caffe2_GPU_SRCS} ${Caffe2_GPU_SRCS_W_SORT_BY_KEY})
+target_link_libraries(torch_cuda INTERFACE torch::cudart)
+target_link_libraries(torch_cuda PUBLIC c10_cuda torch::nvtoolsext)
+target_link_libraries(torch_cuda PUBLIC torch_cpu_library ${Caffe2_PUBLIC_CUDA_DEPENDENCY_LIBS})
+caffe2_interface_library(torch_cuda torch_cuda_library)
+
+# add torch
+add_library(torch ${DUMMY_EMPTY_FILE}
+caffe2_interface_library(torch torch_library)
+target_link_libraries(torch PUBLIC torch_cpu_library)
+target_link_libraries(torch PUBLIC torch_cuda_library)
+```
+
+从上面的代码中我们容易看到，`libtorch`只是一个外壳，里面包含了两个独立的库，`libtorch_cpu`和`lib_torch_cuda`，我们之后会用到的，也均是`libtorch`。同时注意到，他们都取了别名，在后续的构建中，都会使用别名来指代对应的库。
+
+我们完成这些库的构建后，还需要编译Python绑定(python binding)，借助`add_subdirectory(../torch torch)`来进行编译。
+
+### torch cmakelists 
+
+直接贴上源码，这部分很容易梳理：
+
+```bash
+set(TORCH_PYTHON_SRCS
+    ${GENERATED_THNN_CXX}
+    ${GENERATED_CXX_PYTHON}
+    )
+add_library(torch_python SHARED ${TORCH_PYTHON_SRCS})
+target_link_libraries(torch_python torch_library ${TORCH_PYTHON_LINK_LIBRARIES})
+install(TARGETS torch_python DESTINATION "${TORCH_INSTALL_LIB_DIR}")
+```
+
+之前生成了一些代码，然后这些代码编译成了Pytorch的Python绑定。
+
+至此，Pytorch的编译完成。
 
 ## 编译过程中到底发生了什么
 
+Pytorch的编译过程涉及了太多与Cmake和C++相关的知识，如果对他们不熟悉的读者，理解起来可能会有些吃力。所谓编译过程，其实就是盖房子，通过给定的图纸，一步一步建起一座大楼。
+
+万变不离其宗的，是C++的编译过程，
+
 ## 从中梳理Pytorch的结构
+
+Pytorch就是这样一个库，一个混杂着python，c++和c的库，但每个部分都各司其职，井然有序，我们用一张图来对它的架构进行表示。
+
+![Pytorch架构图]()
+
+
+## 结语
+
+相信各位读者现在已经明白了Pytorch的整体架构，理解架构对我们阅读源码是很有帮助的一件事。
+
+这篇文章比较长，里面也包含了较多代码上的细节，如果想要了解更详细的内容，需要读者亲自深入源码。同时也欢迎对文章有疑惑，有意见，有建议的读者与我们一同交流。
+
+下一篇文章，我们将深入ATen的源码生成部分。
 
