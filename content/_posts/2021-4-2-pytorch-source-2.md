@@ -7,19 +7,19 @@ author: Tricter
 location: NanJing
 ---
 
-# 如何从源码编译Pytorch 
+# 如何从源码编译Pytorch？
 
-阅读Pytorch的源码的第一步，首先要获取Pytorch的源代码，然后自己构建一下Pytorch，这样可以对Pytorch有一个粗略的了解，比如Pytorch包含哪些模块，每一个模块的作用是什么，这对我们后续阅读源码会有帮助，本文假设，读者有一定的编码经验。
+阅读Pytorch的源码的第一步，首先要获取Pytorch的源代码，然后自己构建一下Pytorch，这样可以对Pytorch有一个粗略的了解，比如Pytorch包含哪些模块，每一个模块的作用是什么，这对我们后续阅读源码会有帮助，本文假设，读者有一定的编码经验，因此不会介绍过多细节。
 
-之前说到，本系列会从`v0.3.0`开始，一步一步阅读，这样的考虑主要是处于，从`v0.4.0`开始，Pytorch架构发生了较大的改变，从低版本开始阅读更容易把握到Pytorch的架构。
+之前说到，本系列会从`v0.3.0`开始，一步一步阅读，这样的考虑主要是因为，从`v0.4.0`开始，Pytorch架构发生了较大的改变，从低版本开始阅读更容易把握到Pytorch的架构。
 
 但之前也有读者提到，`v0.3.0`确实是太过于古老，接着这次重新编译Pytorch的机会，我们将源码升级到最新（截止目前，最新版本为`v1.9`），之后的阅读也会直接从`v1.9`出发，方便各位读者学习更新的内容，话不多说，我们正式开始，先做一些准备工作。
 
 ## 前期准备工作
 
-与Pytorch官方文档中一致，我们也使用Conda来管理环境。简单介绍一下Conda，Conda可以为我们创建出若干隔离的环境，在每个环境中，我们都可以按需求安装一些库和软件，这样隔离可以方便我们排除一些干扰。Conda还有一些好处，比如可以为环境指定Python版本。
+与Pytorch官方文档中一致，我们也使用Conda来管理环境。简单介绍一下Conda，Conda可以为我们创建出若干隔离的环境，在每个环境中，我们都可以按需求安装一些库和软件，这样的隔离可以方便我们排除一些干扰。Conda还有一些好处，比如可以为环境指定Python版本，同时也可以方便地使用不同版本的Python。
 
-首先我们使用创建一个环境。
+首先我们使用Conda创建一个环境。
 
 ```bash
 conda create -n "pytorch" PYTHON=3.6
@@ -31,32 +31,33 @@ conda activate pytorch
 本文使用Ubuntu18.04作为宿主机。接下来安装一些必要的库：
 
 ```bash
-conda install numpy ninja pyyaml mkl mkl-include setuptools cmake cffi typing_extensions future six requests dataclasses magma-cuda110 lapack -c pytorch -c conda-forge
+conda install numpy ninja pyyaml mkl mkl-include setuptools cmake cffi typing_extensions \
+   future six requests dataclasses magma-cuda110 lapack -c pytorch -c conda-forge
 ```
 
 Conda会在当前环境里为我们安装这些依赖，使用Windows或者MacOS的读者，需要根据官方仓库中的说明，安装对应的依赖。
 
 ## 开始编译
 
-完成上述步骤后，我们开始编译，首先获取源码。
+完成上述步骤后，我们正式开始编译，首先获取源码。
 
 ```bash
-# 使用git从Github上克隆源码，注意 --recursive 是必要的。
+# 使用git从Github上克隆源码，注意 --recursive 是必要的，因为我们需要克隆第三方依赖库。
 git clone --recursive https://github.com/pytorch/pytorch
 cd pytorch
 ```
 
-获取源码后，一定检查一下`third_party`文件夹中是否有文件，如果没有文件或文件不全的话，需要运行如下命令获取这些依赖：
+获取源码后，首先检查一下`third_party`文件夹中是否有文件，如果没有文件或文件不全的话，需要运行如下命令获取这些依赖：
 
 ```bash
+# 更新子模块
 git submodule sync
 git submodule update --init --recursive
 ```
 
-之后我们可以开始编译了。要确保，系统中已经安装好`cmake`。
+之后我们可以开始编译了。要确保，系统中已经安装好`cmake`，Conda中已经安装了Cmake。
 
 ```bash
-cd pytorch
 # 安装torch到python的库目录
 python setup.py install
 # 只编译不进行安装
@@ -64,11 +65,11 @@ python setup.py develop
 ```
 
 注意在这里，我们选择`develop`作为setup的选项，这样的话，编译好的文件将不会安装到Python的目录中，这样可以避免我们自己编译的库与其他安装的库发生冲突。
-如果正常完成编译的话，再进行下一步。
+正常完成编译，没有错误之后，再进行下一步。
 
 # Pytorch编译过程解析
 
-Pytorch混合了多种语言，主要是Python与C++，于是要求读者对C++也有一定了解，比如知晓C++程序的编译过程。为了处理大型C++项目，Pytorch中也使用了CMake作为组织整个项目的工具，不熟悉Cmake的读者，不妨先去了解一下什么是CMake。
+Pytorch混合了多种语言，主要是Python与C++，于是从源码编译要求读者对C++也有一定了解，比如知晓C++程序的编译过程。为了处理大型C++项目，Pytorch中也使用了CMake作为组织整个项目的工具，不熟悉Cmake的读者，不妨先去了解一下什么是CMake。
 
 ## Cmake 简要介绍
 
@@ -180,6 +181,7 @@ target_link_libraries (helloDemo LINK_PUBLIC Hello)
 还记得我们上一篇文章讲过，Pytorch以一个拓展的方式与Python代码进行耦合吗，这一部分就整理了Pytorch需要的诸多扩展，最重要的就是`_C`这个拓展：
 
 ```python
+   # 声明一个Python拓展
    C = Extension("torch._C",
                libraries=["torch_python"],
                sources=["torch/csrc/stub.c"],
@@ -196,7 +198,7 @@ target_link_libraries (helloDemo LINK_PUBLIC Hello)
 除了`_C`之外，Pytorch还需要一些拓展：
 
 1. _dl：在Unix系统中使用动态库。
-2. caffe2.python.caffe2_pybind11_state：caffe2的python接口
+2. shm：共享内存管理的库。
 
 生成这些拓展后，这一步还会做一些简单的事，比如生成`setup`需要用到的命令，Pytorch中的资源文件等等。
 
@@ -206,7 +208,7 @@ target_link_libraries (helloDemo LINK_PUBLIC Hello)
 
 至此我们走完了Pytorch生成的过程，下一步我们将深入依赖库的编译过程中。
 
-## CMakeLists.txt 
+## Cmake
 
 上文提到，每一个工程，都会有一个`CMakeLists.txt`位于根目录中，cmake会将这个文件作为入口，开始编译的过程。在编译过程中，我们可以通过`add_subdirectory`这个函数来添加一个包含`CMakeLists.txt`的文件夹，cmake会进入这个文件夹，接着执行其中的`CMakeLists.txt`，这样可以形成一个树状的结构，直到运行结束所有的代码。这也是一个小技巧，我们可以通过搜索`add_subdirectory`来明确参与编译的目录。
 我们先进入根目录的CMakeLists。
@@ -299,24 +301,25 @@ add_subdirectory(proto)
 
 ```bash 
 list(APPEND Caffe2_CPU_SRCS ${GENERATED_CXX_TORCH} ${GENERATED_H_TORCH})
+# 创建torch_cpu库
 add_library(torch_cpu ${Caffe2_CPU_SRCS})
 ```
 
 之后便是一些与`c10`中类似的结构，用于生成库，并为库添加依赖，如下代码所示：
 
 ```bash
-# build torch_cpu 
+# 给 torch_cpu 添加链接库
 target_link_libraries(torch_cpu PUBLIC c10)
 caffe2_interface_library(torch_cpu torch_cpu_library)
 
-# build torch_cuda
+# 生成 torch_cuda 库
 cuda_add_library(torch_cuda ${Caffe2_GPU_SRCS} ${Caffe2_GPU_SRCS_W_SORT_BY_KEY})
 target_link_libraries(torch_cuda INTERFACE torch::cudart)
 target_link_libraries(torch_cuda PUBLIC c10_cuda torch::nvtoolsext)
 target_link_libraries(torch_cuda PUBLIC torch_cpu_library ${Caffe2_PUBLIC_CUDA_DEPENDENCY_LIBS})
 caffe2_interface_library(torch_cuda torch_cuda_library)
 
-# add torch
+# 生成 torch 库
 add_library(torch ${DUMMY_EMPTY_FILE}
 caffe2_interface_library(torch torch_library)
 target_link_libraries(torch PUBLIC torch_cpu_library)
@@ -356,8 +359,29 @@ Pytorch中包含了许多C++库，编译主要就是要生成它们。每一个�
 
 Pytorch就是这样一个库，一个混杂着python，c++和c的库，但每个部分都各司其职，井然有序，我们用一张图来对它的架构进行表示。
 
-![Pytorch架构图]()
+![Pytorch架构图](./pics/4_2/structure.png)
 
+我们也可以使用`ld`命令得到类似的结果，如下：
+
+```bash
+_C.cpython-36m-x86_64-linux-gnu.so => ../pytorch/torch/_C.cpython-36m-x86_64-linux-gnu.so (interpreter => none)
+   libtorch_python.so => ../pytorch/torch/lib/libtorch_python.so
+      libshm.so => ../pytorch/torch/lib/libshm.so
+      libtorch.so => ../pytorch/torch/lib/libtorch.so
+      libtorch_cpu.so => ../pytorch/torch/lib/libtorch_cpu.so
+      libtorch_cuda.so => ../pytorch/torch/lib/libtorch_cuda.so
+      libc10_cuda.so => ../pytorch/torch/lib/libc10_cuda.so
+      libc10.so => ../pytorch/torch/lib/libc10.so
+```
+
+我们再回顾一下Pytorch中几个大的模块：
+
+1. c10：Tensor的核心抽象，从ATen/core中抽离出来。
+2. ATen：Pytorch与Caffe2公用的计算后端。
+3. Caffe2：另一个深度学习框架，源于Caffe。
+4. Torch：Pytorch的源码，包含python与c++，c++部分位于`csrc`文件夹中。
+
+所以现在出现了两个方向，如果想了解具体的计算部分，可以查看`c10`和`ATen`，如果想了解Pytorch内部的代码逻辑，比如自动微分以及模型推理，可以查看`Torch`。当然我们这个系列两个方向都会深入下去。
 
 ## 结语
 
