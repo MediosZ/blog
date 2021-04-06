@@ -78,6 +78,43 @@ Cmake是一个广泛使用的构建系统生成器（Build System Generator）�
 
 Cmake需要一系列`CMakeLists.txt`来发挥作用，我们就在这个文件中，编写如何生成最后的程序。每一个文件夹中会有一个`CMakeLists`，这样Cmake便可以组织起整个目录。
 
+这里给出一个简单的cmake工程，文件目录如下：
+
+```bash
+.
+├── CMakeLists.txt
+├── Demo
+│   └── CMakeLists.txt
+└── Hello
+    └── CMakeLists.txt
+```
+
+### root
+
+```bash
+cmake_minimum_required (VERSION 2.8.11)
+project (HELLO)
+
+add_subdirectory (Hello)
+add_subdirectory (Demo)
+```
+
+### Hello
+
+```bash
+add_library (Hello hello.cxx)
+target_include_directories (Hello PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+```
+
+### Demo
+
+```bash
+add_executable (helloDemo demo.cxx demo_b.cxx)
+target_link_libraries (helloDemo LINK_PUBLIC Hello)
+```
+
+在根目录中，我们指明工程名字是`HELLO`，在Hello文件夹中，我们生成了一个叫做`Hello`的静态库，在Demo文件夹中，我们生成一个叫做`helloDemo`的可执行文件，并与`Hello`库进行链接，然后得到最终的可执行文件。这个例子虽然简单，但几乎所有的Cmake工程，都会遵循这样的一个范式，理解这样编译的流程，对我们理解Pytorch编译很有帮助。
+
 再次建议想要阅读源码的读者先去系统地学习一下Cmake，否则将无法了解Pytorch的构建过程。接下来，我们正式开始看一下Pytorch的整个构建过程。
 
 ## setup.py 
@@ -310,9 +347,10 @@ install(TARGETS torch_python DESTINATION "${TORCH_INSTALL_LIB_DIR}")
 
 ## 编译过程中到底发生了什么
 
-Pytorch的编译过程涉及了太多与Cmake和C++相关的知识，如果对他们不熟悉的读者，理解起来可能会有些吃力。所谓编译过程，其实就是盖房子，通过给定的图纸，一步一步建起一座大楼。
+Pytorch的编译过程涉及了太多与Cmake和C++相关的知识，如果对他们不熟悉的读者，理解起来可能会有些吃力。
 
-万变不离其宗的，是C++的编译过程，
+所谓编译过程，其实就是盖房子，通过给定的图纸，一步一步建起一座大楼。
+Pytorch中包含了许多C++库，编译主要就是要生成它们。每一个库都需要源代码，包含源文件和头文件，一个库还可能会依赖于其他库，这个时候就需要进行链接，最终形成一个库，这就是我们在上文中做的事情，不断寻找源文件，编译成库，再将这些库按需要链接在一起。
 
 ## 从中梳理Pytorch的结构
 
@@ -325,7 +363,7 @@ Pytorch就是这样一个库，一个混杂着python，c++和c的库，但每个
 
 相信各位读者现在已经明白了Pytorch的整体架构，理解架构对我们阅读源码是很有帮助的一件事。
 
-这篇文章比较长，里面也包含了较多代码上的细节，如果想要了解更详细的内容，需要读者亲自深入源码。同时也欢迎对文章有疑惑，有意见，有建议的读者与我们一同交流。
+这篇文章比较长，里面也包含了较多代码上的细节，如果想要了解更详细的内容，需要读者亲自深入源码。**同时也欢迎对文章有疑惑，有意见，有建议的读者与我们一同交流。**
 
 下一篇文章，我们将深入ATen的源码生成部分。
 
