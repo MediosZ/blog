@@ -361,7 +361,7 @@ Pytorch就是这样一个库，一个混杂着python，c++和c的库，但每个
 
 ![Pytorch架构图](./pics/4_2/structure.png)
 
-我们也可以使用`ld`命令得到类似的结果，如下：
+我们也可以使用`ldd`命令得到类似的结果，如下：
 
 ```bash
 _C.cpython-36m-x86_64-linux-gnu.so => ../pytorch/torch/_C.cpython-36m-x86_64-linux-gnu.so (interpreter => none)
