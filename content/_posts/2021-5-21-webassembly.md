@@ -53,6 +53,72 @@ em++ main.cpp -o index.html
 
 # WASM导出函数
 
+我们使用WASM的时候，大多是想要使用已有的C++程序提供的功能，作为一个外部库。WASM默认不会导出所有的函数，因此我们需要看一下函数是如何导出的。
+
+## 导出函数
+
+比如我们有如下的代码：
+
+```c++
+
+extern "C" int showMeTheAnswer(){
+    return 42;
+}
+
+```
+
+注意这里的`extern "C"`，这是为了避免c++编译器造成的名称混淆，当然也可以使用混淆后的名字。默认`em++`是不会导出这个函数的，我们需要指定额外的链接参数`-s EXPORTED_FUNCTIONS=['_showMeTheAnswer']`，这里函数的名称前面加了`_`，这样我们就可以使用这个导出的函数了。
+
+如果每一个函数都这样导出的话，那会写很多链接参数，所以我们使用一个宏，来帮我们导出，具体如下：
+
+```c++
+#include <emscripten.h>
+
+EMSCRIPTEN_KEEPALIVE
+extern "C" int showMeTheAnswer(){
+    return 42;
+}
+
+```
+
+所有使用这个宏的函数，都会被导出。
+
+## 使用导出的函数
+
+为了使用导出的函数，我们有三种办法:
+
+1. 使用Module
+2. 使用ccall
+3. 使用cwrap
+
+> 使用ccall和cwrap之前，也需要用参数导出它们：`-s "EXTRA_EXPORTED_RUNTIME_METHODS=['ccall', 'cwrap']”`
+
+比如为了在js中使用我们刚刚导出的函数，我们可以这样做：
+
+```js
+//1 
+Module._showMeTheAnswer();
+
+//2 ccall(func_Name_In_Srting, returnType, [argument types ], [arguments]))
+Module.ccall("showMeTheAnswer", number, null, null);
+
+//3 cwrap(func_name, return_type,[‘argument_type’])
+let func = Module.cwrap("showMeTheAnswer", number, null);
+func() // 42
+
+```
 
 
+在使用导出的函数时，一定要等WASM初始化完成，我们可以使用这个回调函数来帮助我们：
 
+```js
+Module.onRuntimeInitialized = () => {
+    let func = Module.cwrap("showMeTheAnswer", number, null);
+    console.log(func()) // 42
+}
+
+```
+
+# 小结
+
+WASM是很强大的工具，可以帮我们在Web中使用更重量级的代码，现在不少前端深度学习框架都使用了WASM，比如`Tfjs`。
