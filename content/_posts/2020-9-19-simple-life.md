@@ -1,10 +1,10 @@
 ---
-title: Simple Life
+title: 简单的生活
 date: 2020-9-19
 tags: 
   - thought
 author: Tricter
-location: NanJing
+location: 南京
 ---
 
 开学了，也算是回归了正轨，相较于以前的生活，现在多了一份规律，每天要做的事，每天能做的事，基本都可以预测到。

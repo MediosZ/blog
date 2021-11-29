@@ -4,7 +4,7 @@ date: 2020-10-4
 tags: 
   - tools
 author: Tricter
-location: NanJing
+location: 南京
 ---
 
 趁国庆这几天，帮实验室搭建了一下网络环境，弄好了一个可用的系统，感觉还是很有趣的，记录一下。

@@ -1,10 +1,10 @@
 ---
-title: The end of this semester
+title: 学期末的小结
 date: 2021-01-23
 tags: 
   - thought
 author: Tricter
-location: NanJing
+location: 南京
 ---
 
 不知不觉中，一个学期就这么结束了。

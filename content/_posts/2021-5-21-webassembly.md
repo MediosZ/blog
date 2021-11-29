@@ -1,10 +1,10 @@
 ---
-title: WebAssembly Introduction
+title: WebAssembly 介绍
 date: 2021-05-21
 tags: 
   - tech
 author: Tricter
-location: NanJing
+location: 南京
 ---
 
 # 什么是 WebAssembly?

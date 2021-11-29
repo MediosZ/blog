@@ -1,10 +1,10 @@
 ---
-title: WebAssembly Memory Management
+title: WebAssembly 内存管理
 date: 2021-06-14
 tags: 
   - tech
 author: Tricter
-location: NanJing
+location: 南京
 ---
 
 在使用`WASM`的过程中，大多数时候是不需要考虑内存的，`JS`为我们处理了大部分数据类型，借由`Embind`也可以直接进行各种参数的传递。但在计算密集型应用中，还是会涉及到数据的传递，比如将数据从JS传递到WASM中，或者从WASM中取回数据。

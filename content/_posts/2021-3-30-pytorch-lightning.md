@@ -1,10 +1,10 @@
 ---
-title: Introduction to Pytorch Lightning
+title: 介绍 Pytorch Lightning
 date: 2021-03-30
 tags: 
   - tech
 author: Tricter
-location: NanJing
+location: 南京
 ---
 
 Pytorch在发展这么多年之后，虽然在不断添加新功能，但它的核心API一直是没有发生改变的。在编写代码的过程中，很容易发现有一部分代码是极其重复的，无论我们实现哪种网络模型，进行哪种计算，都必须要编写这些代码。

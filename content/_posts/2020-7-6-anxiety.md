@@ -1,10 +1,10 @@
 ---
-title: Anxiety
+title: 焦虑
 date: 2020-7-6
 tags: 
   - thought
 author: Tricter
-location: Shanxi
+location: 山西
 ---
 
 我一直没有什么成就感，可能自己确实没有什么成就（笑。不止一次回想自己过去做的事，确实没有什么是能自豪地告诉别人的啊，真是一种奇怪的感觉。

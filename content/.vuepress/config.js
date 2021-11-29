@@ -3,6 +3,7 @@ const feed_options = {
 };
 module.exports = {
     title: 'Avalon',
+    theme: '@vuepress/theme-blog',
     description: 'Just a place called Avalon',
     base: "/",
     dest: "public",
@@ -20,6 +21,36 @@ module.exports = {
         }]
     ],
     themeConfig: {
+      nav: [
+        {
+          text: '中文',
+          link: '/',
+        },
+        {
+          text: 'English',
+          link: '/en/',
+        },
+        {
+          text: '标签',
+          link: '/tag/',
+        },
+      ],
+      directories: [
+        {
+          id: 'post',
+          dirname: '_posts',
+          path: '/',
+        },
+        {
+          id: 'en',
+          dirname: '_en',
+          path: '/en/',
+          itemPermalink: '/en/:year/:month/:day/:slug',
+          title: 'English',
+          layout: 'IndexPost',
+          itemLayout: 'Post',
+        }
+      ],
       footer: {
 
         contact: [ 
@@ -47,7 +78,8 @@ module.exports = {
       feed: {
         canonical_base: 'https://blog.mediosz.club',
       },
-      smoothScroll: true
+      smoothScroll: true,
+      pwa: true,
     },
     markdown: {
       extendMarkdown: md => {

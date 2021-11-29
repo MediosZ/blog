@@ -1,10 +1,10 @@
 ---
-title: Best Editor
+title: 最好的编辑器
 date: 2021-08-30
 tags: 
   - tools
 author: Tricster
-location: NanJing
+location: 南京
 ---
 
 # 编辑器之争

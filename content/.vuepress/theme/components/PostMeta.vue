@@ -69,8 +69,8 @@ export default {
 
   > div
     display inline-flex
-    line-height 12px
-    font-size 12px
+    line-height 14px
+    font-size 14px
     margin-right 20px
 
   svg

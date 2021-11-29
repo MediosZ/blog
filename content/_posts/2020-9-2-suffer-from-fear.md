@@ -1,10 +1,10 @@
 ---
-title: Suffer in Fear
+title: 在恐惧中战栗
 date: 2020-9-2
 tags: 
   - thought
 author: Tricter
-location: Shanxi
+location: 山西
 ---
 
 > “We suffer more often in imagination than in reality” ― Lucius Annaeus Seneca.

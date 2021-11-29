@@ -4,7 +4,7 @@ date: 2020-6-2
 tags: 
   - thought
 author: Tricter
-location: Shanxi  
+location: 山西  
 ---
 
 # 心中的石头

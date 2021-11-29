@@ -1,10 +1,10 @@
 ---
-title: Building Linked Notes
+title: 打造 Linked Notes
 date: 2020-7-18
 tags: 
   - prototype
 author: Tricter
-location: Shanxi
+location: 山西
 ---
 
 # 构建自己的信息网络

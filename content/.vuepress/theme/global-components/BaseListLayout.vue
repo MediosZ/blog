@@ -114,7 +114,7 @@ export default {
     margin-bottom 0px
 
 .ui-post-title
-  font-family PT Serif, Serif
+  font-family LXGW
   font-size 28px
   border-bottom 0
 

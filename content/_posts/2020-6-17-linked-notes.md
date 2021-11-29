@@ -6,7 +6,7 @@ tags:
   - tools
   - prototype
 author: Tricter
-location: Shanxi
+location: 山西
 ---
 
 # what is a useful note system?

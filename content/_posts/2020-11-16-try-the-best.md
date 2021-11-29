@@ -1,10 +1,10 @@
 ---
-title: Try the best
+title: 尽力做到最好
 date: 2020-11-16
 tags: 
   - thought
 author: Tricter
-location: NanJing
+location: 南京
 ---
 
 平静的生活中，最怕的事就是平静。

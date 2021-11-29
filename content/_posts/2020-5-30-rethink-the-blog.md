@@ -1,10 +1,10 @@
 ---
-title: Rethink the Blog
+title: 重新思考博客
 date: 2020-5-30
 tags: 
   - thought
 author: Tricter
-location: Shanxi  
+location: 山西  
 ---
 
 第一次写博客的时候，基本什么都不懂，买了主机，就稀里糊涂地用了WordPress，也可能是之前试用过WordPress，所以也就没有多去考虑了，而且WordPress也确实满足了我当时所有的需求。B

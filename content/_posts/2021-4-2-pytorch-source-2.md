@@ -1,10 +1,10 @@
 ---
-title: Build Pytorch from source
+title: 从源码编译Pytorch
 date: 2021-04-02
 tags: 
   - tech
 author: Tricter
-location: NanJing
+location: 南京
 ---
 
 # 如何从源码编译Pytorch？

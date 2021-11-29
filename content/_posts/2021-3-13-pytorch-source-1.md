@@ -1,10 +1,10 @@
 ---
-title: Dive into Pytorch source code
+title: 深入Pytorch源代码
 date: 2021-03-13
 tags: 
   - tech
 author: Tricter
-location: NanJing
+location: 南京
 ---
 
 
