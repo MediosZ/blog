@@ -128,6 +128,7 @@ export default {
       text-decoration underline
 
 .ui-post-summary
+  font-family LXGW
   font-size 14px
   color rgba($darkTextColor, 0.80)
   font-weight 200

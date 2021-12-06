@@ -28,5 +28,10 @@ deploy:
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\nHost *\n\tPort $port\n\n" > ~/.ssh/config'
   script:
     - echo trigger deploy
-    - apk add --no-cache rsync
+    - apk add --no-cache rsync ripgrep py3-pip
+    - pip3 install fonttools
+    - cd public/
+    - pyftsubset "assets/fonts/lxgw.513297f3.ttf" --text=$(rg -e '[\w\d]' -oN --no-filename|sort|uniq|tr -d '\n') --no-hinting
+    - mv assets/fonts/lxgw.513297f3.subset.ttf assets/fonts/lxgw.513297f3.ttf
+    - cd ..
     - rsync -rav --delete public/ gitlab@"$server":/www/$CI_PROJECT_NAME/
