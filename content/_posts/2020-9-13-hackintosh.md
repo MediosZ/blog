@@ -3,7 +3,7 @@ title: Hackintosh
 date: 2020-9-13
 tags: 
   - prototype
-author: Tricter
+author: Tricster
 location: 南京
 ---
 

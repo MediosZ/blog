@@ -3,7 +3,7 @@ title: 尽力做到最好
 date: 2020-11-16
 tags: 
   - thought
-author: Tricter
+author: Tricster
 location: 南京
 ---
 

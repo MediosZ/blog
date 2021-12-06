@@ -3,7 +3,7 @@ title: 简单的生活
 date: 2020-9-19
 tags: 
   - thought
-author: Tricter
+author: Tricster
 location: 南京
 ---
 

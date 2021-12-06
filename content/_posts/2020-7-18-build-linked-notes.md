@@ -3,7 +3,7 @@ title: 打造 Linked Notes
 date: 2020-7-18
 tags: 
   - prototype
-author: Tricter
+author: Tricster
 location: 山西
 ---
 

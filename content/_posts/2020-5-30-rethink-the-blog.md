@@ -3,7 +3,7 @@ title: 重新思考博客
 date: 2020-5-30
 tags: 
   - thought
-author: Tricter
+author: Tricster
 location: 山西  
 ---
 

@@ -3,7 +3,7 @@ title: Peer Pressure
 date: 2020-6-2
 tags: 
   - thought
-author: Tricter
+author: Tricster
 location: 山西  
 ---
 

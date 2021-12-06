@@ -3,7 +3,7 @@ title: 深入Pytorch源代码
 date: 2021-03-13
 tags: 
   - tech
-author: Tricter
+author: Tricster
 location: 南京
 ---
 

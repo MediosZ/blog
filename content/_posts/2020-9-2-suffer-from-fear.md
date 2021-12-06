@@ -3,7 +3,7 @@ title: 在恐惧中战栗
 date: 2020-9-2
 tags: 
   - thought
-author: Tricter
+author: Tricster
 location: 山西
 ---
 

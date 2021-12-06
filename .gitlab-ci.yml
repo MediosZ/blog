@@ -15,23 +15,24 @@ build:
   - master
  
 deploy:
-  image: alpine
+  image: ubuntu:20.04
   stage: deploy
   before_script:
-  - sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
-  - apk update
-  - 'which ssh-agent || ( apk add --no-cache openssh )'
+  - sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+  - apt update
+  - echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+  - apt-get install -y -q
+  - 'which ssh-agent || ( apt install -y ssh )'
   - eval $(ssh-agent -s)
   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
   - mkdir -p ~/.ssh
   - chmod 700 ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\nHost *\n\tPort $port\n\n" > ~/.ssh/config'
   script:
-    - echo trigger deploy
-    - apk add --no-cache rsync ripgrep py3-pip
-    - pip3 install fonttools
+    - apt install -y rsync ripgrep fonttools
     - cd public/
-    - pyftsubset "assets/fonts/lxgw.513297f3.ttf" --text=$(rg -e '[\w\d]' -oN --no-filename|sort|uniq|tr -d '\n') --no-hinting
+    - pyftsubset "assets/fonts/lxgw.513297f3.ttf" --text=$(rg ./ -e '[\w\d]' -oN --no-filename|sort|uniq|tr -d '\n') --no-hinting
+    - mv assets/fonts/lxgw.513297f3.ttf assets/fonts/lxgw.513297f3.ttf.bak
     - mv assets/fonts/lxgw.513297f3.subset.ttf assets/fonts/lxgw.513297f3.ttf
     - cd ..
     - rsync -rav --delete public/ gitlab@"$server":/www/$CI_PROJECT_NAME/

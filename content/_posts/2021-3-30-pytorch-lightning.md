@@ -3,7 +3,7 @@ title: 介绍 Pytorch Lightning
 date: 2021-03-30
 tags: 
   - tech
-author: Tricter
+author: Tricster
 location: 南京
 ---
 

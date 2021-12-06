@@ -3,7 +3,7 @@ title: WebAssembly 介绍
 date: 2021-05-21
 tags: 
   - tech
-author: Tricter
+author: Tricster
 location: 南京
 ---
 

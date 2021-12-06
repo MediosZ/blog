@@ -3,7 +3,7 @@ title: Tricky Mars
 date: 2020-10-4
 tags: 
   - tools
-author: Tricter
+author: Tricster
 location: 南京
 ---
 

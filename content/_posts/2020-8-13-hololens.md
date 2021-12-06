@@ -3,7 +3,7 @@ title: Hololens 和混合现实
 date: 2020-8-13
 tags: 
   - prototype
-author: Tricter
+author: Tricster
 location: 山西
 ---
 

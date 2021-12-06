@@ -3,7 +3,7 @@ title: 学期末的小结
 date: 2021-01-23
 tags: 
   - thought
-author: Tricter
+author: Tricster
 location: 南京
 ---
 

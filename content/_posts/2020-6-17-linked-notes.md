@@ -5,7 +5,7 @@ tags:
   - thought
   - tools
   - prototype
-author: Tricter
+author: Tricster
 location: 山西
 ---
 

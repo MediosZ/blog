@@ -3,7 +3,7 @@ title: WebAssembly 内存管理
 date: 2021-06-14
 tags: 
   - tech
-author: Tricter
+author: Tricster
 location: 南京
 ---
 

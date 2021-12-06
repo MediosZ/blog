@@ -3,7 +3,7 @@ title: Rejection
 date: 2020-7-9
 tags: 
   - thought
-author: Tricter
+author: Tricster
 location: 山西
 ---
 

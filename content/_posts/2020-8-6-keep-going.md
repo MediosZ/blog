@@ -3,7 +3,7 @@ title: 继续前行
 date: 2020-8-6
 tags: 
   - thought
-author: Tricter
+author: Tricster
 location: 山西
 ---
 

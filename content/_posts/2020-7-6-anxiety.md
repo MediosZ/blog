@@ -3,7 +3,7 @@ title: 焦虑
 date: 2020-7-6
 tags: 
   - thought
-author: Tricter
+author: Tricster
 location: 山西
 ---
 

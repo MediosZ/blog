@@ -3,7 +3,7 @@ title: 从源码编译Pytorch
 date: 2021-04-02
 tags: 
   - tech
-author: Tricter
+author: Tricster
 location: 南京
 ---
 
