@@ -51,6 +51,7 @@ module.exports = {
           itemLayout: 'Post',
         }
       ],
+      summaryLength: 150,
       footer: {
 
         contact: [ 
