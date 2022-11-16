@@ -21,8 +21,8 @@ jobs:
 
       - name: Post
         run: |
-          apt update
-          apt install -y rsync ripgrep fonttools
+          sudo apt update
+          sudo apt install -y rsync ripgrep fonttools
           cd public/
           pyftsubset "assets/fonts/lxgw.513297f3.ttf" --text=$(rg ./ -e '[\w\d]' -oN --no-filename|sort|uniq|tr -d '\n') --no-hinting
           mv assets/fonts/lxgw.513297f3.ttf assets/fonts/lxgw.513297f3.ttf.bak
@@ -35,4 +35,5 @@ jobs:
           BRANCH: gh-pages
           FOLDER: public/
       - name: Debug over SSH (tmate)
+        if: ${{ failure() }}
         uses: mxschmitt/action-tmate@v3.1
