@@ -15,17 +15,18 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-      
+
       - name: Build
         run: yarn install && yarn build
 
       - name: Post
-        run: apt update
-        run: apt install -y rsync ripgrep fonttools
-        run: cd public/
-        run: pyftsubset "assets/fonts/lxgw.513297f3.ttf" --text=$(rg ./ -e '[\w\d]' -oN --no-filename|sort|uniq|tr -d '\n') --no-hinting
-        run: mv assets/fonts/lxgw.513297f3.ttf assets/fonts/lxgw.513297f3.ttf.bak
-        run: mv assets/fonts/lxgw.513297f3.subset.ttf assets/fonts/lxgw.513297f3.ttf
+        run: |
+          apt update
+          apt install -y rsync ripgrep fonttools
+          cd public/
+          pyftsubset "assets/fonts/lxgw.513297f3.ttf" --text=$(rg ./ -e '[\w\d]' -oN --no-filename|sort|uniq|tr -d '\n') --no-hinting
+          mv assets/fonts/lxgw.513297f3.ttf assets/fonts/lxgw.513297f3.ttf.bak
+          mv assets/fonts/lxgw.513297f3.subset.ttf assets/fonts/lxgw.513297f3.ttf
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
