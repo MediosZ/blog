@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Avalon</title>
+        <link>https://blog.mediosz.club</link>
+        <description>Just a place called Avalon</description>
+        <lastBuildDate>Wed, 16 Nov 2022 02:56:49 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>https://github.com/webmasterish/vuepress-plugin-feed</generator>
+        <item>
+            <title><![CDATA[Tiling Windows Manager]]></title>
+            <link>https://blog.mediosz.club/en/2021/11/29/tiling-windows-manager/</link>
+            <guid>https://blog.mediosz.club/en/2021/11/29/tiling-windows-manager/</guid>
+            <pubDate>Mon, 29 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[I will write in English!
+
+My experiences of using windows manager
+
+What is tiling windows manager?
+
+Yabai
+
+Summary ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Tricky Mars]]></title>
+            <link>https://blog.mediosz.club/2020/10/04/tricky-mars/</link>
+            <guid>https://blog.mediosz.club/2020/10/04/tricky-mars/</guid>
+            <pubDate>Sun, 04 Oct 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[趁国庆这几天，帮实验室搭建了一下网络环境，弄好了一个可用的系统，感觉还是很有趣的，记录一下。
+
+突破设备限制
+
+校园网有一个很让我不能接受的限制，就是对设备的限制，一个校园网账户限制3个在线设备。
+不说实验设备，光我自己的设备，就不只3个了，这样的限制很苛刻，而且对于在线的判定也是有延迟的，每次 ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[尽力做到最好]]></title>
+            <link>https://blog.mediosz.club/2020/11/16/try-the-best/</link>
+            <guid>https://blog.mediosz.club/2020/11/16/try-the-best/</guid>
+            <pubDate>Mon, 16 Nov 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[平静的生活中，最怕的事就是平静。
+平静把人磨平。
+在平静的一天一天中，我们终将迷失。
+
+就像是，每天都有在做事情，但不知道这样一天天下去会怎么样。
+就挺怕这样的，一天一天下去，一事无成。
+好好做点事吧。
+加油。 ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[准备]]></title>
+            <link>https://blog.mediosz.club/2020/12/10/prepare/</link>
+            <guid>https://blog.mediosz.club/2020/12/10/prepare/</guid>
+            <pubDate>Thu, 10 Dec 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[今天下午要做一个英文的Presentation，不知出于什么想法，我没有好好写稿子，也没有好好准备，将一切的东西寄希望于自己在台上的即兴发挥。
+但是我发现自己错了。
+
+且不说讲的东西很拖沓，有用的信息很少，而且超时了好长时间，
+用的ppt也是旧版，没有把更新过的ppt放上去，结果少了很多内容。
+
+这 ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[重新思考博客]]></title>
+            <link>https://blog.mediosz.club/2020/05/30/rethink-the-blog/</link>
+            <guid>https://blog.mediosz.club/2020/05/30/rethink-the-blog/</guid>
+            <pubDate>Sat, 30 May 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[第一次写博客的时候，基本什么都不懂，买了主机，就稀里糊涂地用了WordPress，也可能是之前试用过WordPress，所以也就没有多去考虑了，而且WordPress也确实满足了我当时所有的需求。B
+慢慢地，写的东西变少了，或者说，一直以来记录的心情，开始了重复，也就觉得没什么好写的了。现在想想，写 ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Linked notes]]></title>
+            <link>https://blog.mediosz.club/2020/06/17/linked-notes/</link>
+            <guid>https://blog.mediosz.club/2020/06/17/linked-notes/</guid>
+            <pubDate>Wed, 17 Jun 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[When we build a Note System or Information System, it is more important to build an index table or some thing like this to help you find what you ne ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Peer Pressure]]></title>
+            <link>https://blog.mediosz.club/2020/06/02/peer-pressure/</link>
+            <guid>https://blog.mediosz.club/2020/06/02/peer-pressure/</guid>
+            <pubDate>Tue, 02 Jun 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[这几天学校推了一些很优秀的同学们，参加一些评选什么的，我虽然没有每一个都看，但说实话，心里是有一些痒痒的。看到认识的人，就点进去看了一下，确实是很厉害的人，很耀眼。
+可能，我看了会觉得很骄傲，可以和这么多厉害的人在同一个学校。但是，我没有，连着好几天，我甚至会觉得有些难受，是那种很奇怪的感觉，像 ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Latex的介绍]]></title>
+            <link>https://blog.mediosz.club/2020/06/09/latex/</link>
+            <guid>https://blog.mediosz.club/2020/06/09/latex/</guid>
+            <pubDate>Tue, 09 Jun 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[前几天写毕业论文，没有选择使用 Microsoft Word，而是去找了一份 Latex 的模板，想着可以趁这个机会学习一下怎么使用Latex。体验其实还是挺好的，借助Latex，就不用再担心这样那样的格式问题（前提是能找到一个好的模板），可以把精力放在内容上，颇有当初学习 ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[打造 Linked Notes]]></title>
+            <link>https://blog.mediosz.club/2020/07/18/build-linked-notes/</link>
+            <guid>https://blog.mediosz.club/2020/07/18/build-linked-notes/</guid>
+            <pubDate>Sat, 18 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[受到了别人信息系统的启发，打算模仿地做一个类似的系统出来。
+从阅读地角度讲，就可以从一个根节点出发，然后不断深入，进行思考，同时整个系统就是一个巨大的树或是网络，以这种方式来组织自己的想法和思路。
+
+优势
+
+比较有趣的是，可以根据思考的过程来组织知识与信息。
+给阅读的人也可 ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[焦虑]]></title>
+            <link>https://blog.mediosz.club/2020/07/06/anxiety/</link>
+            <guid>https://blog.mediosz.club/2020/07/06/anxiety/</guid>
+            <pubDate>Mon, 06 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[我一直没有什么成就感，可能自己确实没有什么成就（笑。不止一次回想自己过去做的事，确实没有什么是能自豪地告诉别人的啊，真是一种奇怪的感觉。
+如果只是没有成就感的话也就没什么了，平静地过自己的生活不也挺好的么。
+可惜的是，我还会感到深深的焦虑感，也许是因为即使是我，也想要一些成就吧。
+
+标尺
+
+我 ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Rejection]]></title>
+            <link>https://blog.mediosz.club/2020/07/09/rejection/</link>
+            <guid>https://blog.mediosz.club/2020/07/09/rejection/</guid>
+            <pubDate>Thu, 09 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[大概在5月份的时候，投出了自己的第一篇论文，昨天出了Reviewer的评价，收到了5个Rejction（只有5个Reviewer），不能说是意料之中吧，多少有些失落的，毕竟也是自己断断续续做了快两年的东西。
+
+不过其实除了失落之外，还有不少值得反思的。
+
+为什么做科研
+
+其实这个问题还是挺难回 ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Hololens 和混合现实]]></title>
+            <link>https://blog.mediosz.club/2020/08/13/hololens/</link>
+            <guid>https://blog.mediosz.club/2020/08/13/hololens/</guid>
+            <pubDate>Thu, 13 Aug 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[这几天拿到了Hololens，把玩了几天，记录一下。
+
+Mixed Reality
+MR的概念其实有些不直观，它更像是AR和VR的结合体。在VR中，用户可以有沉浸式的体验，但也因此无法看到周遭的现实环境；而在AR中，我们总在现实环境中叠加一些虚拟的物体，来提高现实的体验，虽然可以看到现实世界， ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[改变]]></title>
+            <link>https://blog.mediosz.club/2020/08/13/change/</link>
+            <guid>https://blog.mediosz.club/2020/08/13/change/</guid>
+            <pubDate>Thu, 13 Aug 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[疫情以来，我一直待在家里，没有去别的地方，甚至毕业都没有回去学校收拾。这确实是一段非常长的时间，从小到大都没有过的经历，即使是小时候，也要去上学之类的，不可能待在家这么长时间。
+
+待在家这样的舒适区，很容易变得怠惰，不能好好利用时间。而我确实也是这样，这半年时间里，几乎每天都是苟活着，完全没有做什么 ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[继续前行]]></title>
+            <link>https://blog.mediosz.club/2020/08/06/keep-going/</link>
+            <guid>https://blog.mediosz.club/2020/08/06/keep-going/</guid>
+            <pubDate>Thu, 06 Aug 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[说到坚持，确实是从小到大听的很多的一句话了，什么坚持就是胜利，坚持就能变得更好。
+诚然，坚持是一件值得肯定的事，但是我们不应该盲目地把一切地功劳都归结于坚持，而是应该理性地对一件事进行分析。
+
+如果一个人在坚持做某一件事的过程中做得越来越好，则不仅仅是因为他的坚持，其中可能蕴含着更多的技巧和思索。
+ ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Hackintosh]]></title>
+            <link>https://blog.mediosz.club/2020/09/13/hackintosh/</link>
+            <guid>https://blog.mediosz.club/2020/09/13/hackintosh/</guid>
+            <pubDate>Sun, 13 Sep 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[当时在公司的时候，用公司的电脑安装了一下黑苹果，感觉还不错，一方面，苹果系统在日常使用的过程中可能更舒服一些，另一方面，折腾黑苹果的过程也许会给人带来成就感，也就是在尝试很多配置之后终于正常启动的快乐。
+
+于是也在想着给在实验室用的机器装一下黑苹果。尝试了几天，总算是回归正轨了。
+
+Clove ...]]></description>
+            <enclosure url="https://blog.mediosz.club/./pics/opencore_file_structure.png">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[简单的生活]]></title>
+            <link>https://blog.mediosz.club/2020/09/19/simple-life/</link>
+            <guid>https://blog.mediosz.club/2020/09/19/simple-life/</guid>
+            <pubDate>Sat, 19 Sep 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[开学了，也算是回归了正轨，相较于以前的生活，现在多了一份规律，每天要做的事，每天能做的事，基本都可以预测到。
+
+可以说这是一种不好的现象，因为生活太固定了也不是一件好事，在固定的生活中，往往会丢掉很多乐趣以及新的可能性。
+不过凡事也不是绝对的，在这种规律的生活中，对自己的轨迹加以预测，可以帮助自己避 ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[在恐惧中战栗]]></title>
+            <link>https://blog.mediosz.club/2020/09/02/suffer-from-fear/</link>
+            <guid>https://blog.mediosz.club/2020/09/02/suffer-from-fear/</guid>
+            <pubDate>Wed, 02 Sep 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[“We suffer more often in imagination than in reality” ― Lucius Annaeus Seneca.
+
+今天在听一个 [TED Talk](https://www.ted.com/talks/timferrisswhyyoushou ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[学期末的小结]]></title>
+            <link>https://blog.mediosz.club/2021/01/23/end-of-the-semester/</link>
+            <guid>https://blog.mediosz.club/2021/01/23/end-of-the-semester/</guid>
+            <pubDate>Sat, 23 Jan 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[不知不觉中，一个学期就这么结束了。
+学期末做的事也无非是准备期末考试，虽然还是没有考的很好。
+不过这次考试也让我明白了很多道理，也不会再为了考试那么恐慌了。
+
+这学期中零零散散写了不少东西，也不是什么都没有做，但感觉发力点还是不明显，还是有种浅尝辄止的感觉。
+从目标上讲，现在短期目标还是挺明确的，比 ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[平铺式桌面管理器]]></title>
+            <link>https://blog.mediosz.club/2021/11/29/tiling-windows-manager/</link>
+            <guid>https://blog.mediosz.club/2021/11/29/tiling-windows-manager/</guid>
+            <pubDate>Mon, 29 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[第一次看到有人用平铺桌面还是在19年实习的时候，那时只觉得很酷，但看着很乱，可能因为一个桌面被分割成了非常多的小窗口。之后也短暂使用过bug.n，但并没有继续使用下去。这几天在一个机缘巧合下，看到有人推荐yabai，于是又花了一点时间重新投入了平铺式桌面，故记录下一些体会。
+
+我的桌面管理历程
+ ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Web上的深度学习]]></title>
+            <link>https://blog.mediosz.club/2021/11/30/dl-on-web/</link>
+            <guid>https://blog.mediosz.club/2021/11/30/dl-on-web/</guid>
+            <pubDate>Tue, 30 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[今年5月份的时候，偶然看到了“开源软件供应链点亮计划 - 暑期2021”这个活动，而我正好对深度学习与Web结合感兴趣，于是报名了“web 上运行 mge 模型”这个项目。
+
+终于在10月底，我基本实现了Megengine.js，完成了项目的验收，项目的结题报告书可以在[这里](https://me ...]]></description>
+        </item>
+    </channel>
+</rss>
