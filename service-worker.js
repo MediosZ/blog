@@ -21,119 +21,119 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox
 self.__precacheManifest = [
   {
     "url": "2020/05/30/rethink-the-blog/index.html",
-    "revision": "f56362466be9feb82aeee5199364d854"
+    "revision": "efc92377580d587c9cdd658c8ee4e692"
   },
   {
     "url": "2020/06/02/peer-pressure/index.html",
-    "revision": "1a68092b3adeed6bef5c68335410eb63"
+    "revision": "541bdff6572c202e307d5d59930833af"
   },
   {
     "url": "2020/06/09/latex/index.html",
-    "revision": "25951c79065b8e3069883f3f10cbbc57"
+    "revision": "f188eacf8bde86b688331bb52feece22"
   },
   {
     "url": "2020/06/17/linked-notes/index.html",
-    "revision": "a7c8bcbf31951fc27d5c4179373edcc9"
+    "revision": "0be71b82da6eaec20bfd52fc2effb0ab"
   },
   {
     "url": "2020/07/06/anxiety/index.html",
-    "revision": "6c2c6b31f06825c1fe1a349598dd0553"
+    "revision": "7460c2a6fc606e2c2ed205b82059d83f"
   },
   {
     "url": "2020/07/09/rejection/index.html",
-    "revision": "adb2c905935d0b91ece709adccd27861"
+    "revision": "3b95d9cee1963967db7c7514cb7f933e"
   },
   {
     "url": "2020/07/18/build-linked-notes/index.html",
-    "revision": "ce32bac3134101cf73186931aa7ec504"
+    "revision": "d8f2c794e366c406384ba0a28ce5bc69"
   },
   {
     "url": "2020/08/06/keep-going/index.html",
-    "revision": "c85196b449fd02417d42dc145816042e"
+    "revision": "9040c77fd561f45883645196373788be"
   },
   {
     "url": "2020/08/13/change/index.html",
-    "revision": "bef2bf45dca73ca7af24ff32fe0b291a"
+    "revision": "bb48a76b34d3c937a5631d3718befb12"
   },
   {
     "url": "2020/08/13/hololens/index.html",
-    "revision": "321075deaf6415e2959423e9c0562bdb"
+    "revision": "487a4a8ad8d8bb89b7825e7ab1f1e4e7"
   },
   {
     "url": "2020/09/02/suffer-from-fear/index.html",
-    "revision": "5d58e123f469df8943f28ed5a8ba5b3a"
+    "revision": "e48f2076770c1364a88a0fa393154ed5"
   },
   {
     "url": "2020/09/13/hackintosh/index.html",
-    "revision": "c42c246abbebc0d67eb209b94a0810f2"
+    "revision": "e3096dbd6639bd0e44de63048512c4e8"
   },
   {
     "url": "2020/09/19/simple-life/index.html",
-    "revision": "626e027d4623f065286fb9a467a63f0b"
+    "revision": "bf22ae34481fcf1a1e4455c495633739"
   },
   {
     "url": "2020/10/04/tricky-mars/index.html",
-    "revision": "9908093f8c8039686d1414dc944cba80"
+    "revision": "38d6204576b71a38cef67f1cdc109494"
   },
   {
     "url": "2020/11/16/try-the-best/index.html",
-    "revision": "796804ec4e587bd6bb3274fbc72e9cea"
+    "revision": "cbd8863a54b61129fdfe55fc81308367"
   },
   {
     "url": "2020/12/10/prepare/index.html",
-    "revision": "4dda5fe39cca6eddc13995442a8a99d6"
+    "revision": "e70b244c2680aa55778f46dfda9f6a0a"
   },
   {
     "url": "2021/01/23/end-of-the-semester/index.html",
-    "revision": "f25dacba693348e2d754de31b6ce738e"
+    "revision": "beaf6a80b178c9b262f52848c7a78b6e"
   },
   {
     "url": "2021/03/13/pytorch-source-1/index.html",
-    "revision": "f94c43f3e6bd793c8107b8e379f6f2af"
+    "revision": "eed4ac083642371be7fe1dd1c19595ca"
   },
   {
     "url": "2021/03/30/pytorch-lightning/index.html",
-    "revision": "6d85469d0ef87e27d9a556964866607d"
+    "revision": "00e7bfbbea11f8c0999ff155b3112294"
   },
   {
     "url": "2021/04/02/pytorch-source-2/index.html",
-    "revision": "765242a4ae18754524b582ac3f32094e"
+    "revision": "7a46dbaa39c0823712c66e7995d2ce1b"
   },
   {
     "url": "2021/04/18/pytorch-source-3/index.html",
-    "revision": "1fa49a90f729d5490d9727b1db542cee"
+    "revision": "ac49b401ba49f12f7bab6d65fb25906c"
   },
   {
     "url": "2021/05/21/webassembly/index.html",
-    "revision": "64bbe04127e03a136e95cb67d500d0de"
+    "revision": "08e7a45a30143820251ec35f2589de58"
   },
   {
     "url": "2021/06/14/wasm-memory-management/index.html",
-    "revision": "018d3e60fcd3c6d103698747e4ecb751"
+    "revision": "deeb5c9204304531473cf1b811645bd3"
   },
   {
     "url": "2021/08/30/best-editor/index.html",
-    "revision": "e597acfc3dfb0579e170f40ae5b64484"
+    "revision": "40fb989fc109e5dea38b84d0bc304ea2"
   },
   {
     "url": "2021/11/29/tiling-windows-manager/index.html",
-    "revision": "c4889be41983fc012482c74996defb83"
+    "revision": "629f1c87d4187b333e0e8eee9aef7ce4"
   },
   {
     "url": "2021/11/30/dl-on-web/index.html",
-    "revision": "99812e999475004940cdaa43b1561a59"
+    "revision": "261d71f4834420d91d77fd9c9cc8ddc6"
   },
   {
     "url": "2021/12/06/topography/index.html",
-    "revision": "9affc3f4110760dacf0ffbd11322b84b"
+    "revision": "cd11f6a82d94bfba632390b0af746ffc"
   },
   {
     "url": "2022/01/08/the-editor/index.html",
-    "revision": "a89d9f62348b1049a7e834318c7501c6"
+    "revision": "2f635e197f5289aad463312e71020089"
   },
   {
     "url": "404.html",
-    "revision": "e379c3113235ee9c25b9116eb90a2060"
+    "revision": "5eb7edd0b9d1b4423391511a8aa42ee9"
   },
   {
     "url": "assets/css/0.styles.14fb6a50.css",
@@ -336,8 +336,8 @@ self.__precacheManifest = [
     "revision": "cfc02b31b5f29a90f1adabbfe54f56c9"
   },
   {
-    "url": "assets/js/app.bdc094dc.js",
-    "revision": "086e9b8e6ca70e35b883eabdf82bc34e"
+    "url": "assets/js/app.15c442c3.js",
+    "revision": "77d3392016815ba8861f7e06dc6e6b26"
   },
   {
     "url": "assets/js/vuejs-paginate.17238d84.js",
@@ -345,71 +345,71 @@ self.__precacheManifest = [
   },
   {
     "url": "en/2021/11/29/tiling-windows-manager/index.html",
-    "revision": "5fb5e007637061ba38973326ee971e04"
+    "revision": "74ef5404fa2ba2cf629f278e94fba4e9"
   },
   {
     "url": "en/index.html",
-    "revision": "6cfc369931013a5e6549322c5c630ed3"
+    "revision": "6771a135f867128d7fa7fc3b5529c426"
   },
   {
     "url": "index.html",
-    "revision": "78eb12576497d720689b496cf46faa0f"
+    "revision": "b46391a39cda7268ec04db430985cb60"
   },
   {
     "url": "page/2/index.html",
-    "revision": "45a282422bc2d4e76f2c5e6fc2ebd2e8"
+    "revision": "8411524f04297b626877290695a25130"
   },
   {
     "url": "page/3/index.html",
-    "revision": "70d1c5be27d89f63ef9c4f6ee0ceff2c"
+    "revision": "8f6c05b3ef286e9cb86ffa5ca560aea4"
   },
   {
     "url": "page/4/index.html",
-    "revision": "c42b0900cee17b56f94e3bf41b57867f"
+    "revision": "744b681f5edd04f381c953c786cb9d1b"
   },
   {
     "url": "page/5/index.html",
-    "revision": "1767696ddb5b5caea37072da7eaf830c"
+    "revision": "ae7258f8169df46c18148ffa3336b336"
   },
   {
     "url": "page/6/index.html",
-    "revision": "ce1a1487e78ec28e0988ff2b07a25bc4"
+    "revision": "f4da47bc25f70a34fe078c067e8d05a0"
   },
   {
     "url": "tag/index.html",
-    "revision": "19e2524240a3666a383d136fba644046"
+    "revision": "1e5684ee013101272103d2f3dda8827a"
   },
   {
     "url": "tag/prototype/index.html",
-    "revision": "7d7c584ebb3cbc78a535314efd0b8cbb"
+    "revision": "c195f2f014f912338df58caae81c3f19"
   },
   {
     "url": "tag/tech/index.html",
-    "revision": "cab9308e50842f3f2ba1ebf3a88c0ffd"
+    "revision": "e2ab72799995ed4b3f5109357b41f0c5"
   },
   {
     "url": "tag/tech/page/2/index.html",
-    "revision": "4a347ed74b64d9af3479f57a627acaa4"
+    "revision": "bb62c6fbd60d386c98e264e7387c736e"
   },
   {
     "url": "tag/thought/index.html",
-    "revision": "eac304b80464630aeb255197ea17a164"
+    "revision": "c97934a8aff5ae6b281f523ef12bfad7"
   },
   {
     "url": "tag/thought/page/2/index.html",
-    "revision": "567a3a44b6b473ac599da1700ab37032"
+    "revision": "ecd90b61ff2c76d6be7a679e218c540e"
   },
   {
     "url": "tag/thought/page/3/index.html",
-    "revision": "f2ea4fa4a2a4109aa810fd7ef8ed3135"
+    "revision": "e284d969e219b636b0f7bb2eeabe2cc5"
   },
   {
     "url": "tag/tools/index.html",
-    "revision": "4ecb415bbe73c79eda8095483c52f798"
+    "revision": "4113702d285783a1b4f531f0c67ed257"
   },
   {
     "url": "tag/tools/page/2/index.html",
-    "revision": "69d9d08c376a2ba1e92374f00f432b17"
+    "revision": "9b4bfb3dd7cd648d5fbef1fd95dd5c63"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
