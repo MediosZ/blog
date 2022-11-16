@@ -21,10 +21,13 @@ concurrency:
 
 jobs:
   build:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Set-up Node
         uses: actions/setup-node@v1
         with:
@@ -42,26 +45,20 @@ jobs:
           mv assets/fonts/lxgw.513297f3.ttf assets/fonts/lxgw.513297f3.ttf.bak
           mv assets/fonts/lxgw.513297f3.subset.ttf assets/fonts/lxgw.513297f3.ttf
 
-      - name: Debug over SSH (tmate)
-        if: ${{ failure() }}
-        uses: mxschmitt/action-tmate@v3.1
-        timeout-minutes: 30
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v2
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
           path: "public/"
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+
+      - name: Debug over SSH (tmate)
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3.1
+        timeout-minutes: 30
