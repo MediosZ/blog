@@ -5,7 +5,7 @@ module.exports = {
     title: 'Avalon',
     theme: '@vuepress/theme-blog',
     description: 'Just a place called Avalon',
-    base: "/",
+    base: "/blog/",
     dest: "public",
     plugins: [
         '@vuepress/back-to-top',
