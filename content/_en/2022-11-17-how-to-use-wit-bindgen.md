@@ -113,6 +113,65 @@ fn main() -> Result<()> {
 }
 ```
 
+## Use the Compoennt in Python 
+
+Wait, how can I use the wasm compoennt in Python? It is not that straightforward.
+
+First, we need to install `wasmtime` for python and `wit-bindgen-cli`.
+
+```bash 
+# Install wit-bindgen 
+cargo install --git https://github.com/bytecodealliance/wit-bindgen wit-bindgen-cli
+
+# Install wasmtime for python 
+pip3 install wasmtime
+```
+
+Then, we can generate the bindings, from the `component.wasm`, not `component.wit` anymore.
+
+So let's save the `component.wasm` using rust first.
+
+```rust 
+// we first read the bytes of the wasm module.
+let module = std::fs::read("./target/wasm32-unknown-unknown/release/app.wasm")?;
+// then we transform module to compoennt.
+// remember to get wasi_snapshot_preview1.wasm first.
+let component = ComponentEncoder::default()
+    .module(module.as_slice())?
+    .validate(true)
+    .adapter_file(std::path::Path::new("./wits/wasi_snapshot_preview1.wasm"))?
+    .encode()?;
+std::fs::write("./target/component.wasm", &component)?;
+```
+
+```bash
+# generate bindings 
+wit-bindgen host wasmtime-py ./target/component.wasm --out-dir python/markdown/
+```
+
+After all of these, we can create a python file to use the component.
+
+```python
+from wasmtime import Engine, Store, Config
+from markdown import Component
+
+if __name__ == "__main__":
+    path = "/home/tric/codebase/component-model-demo/target/wasm32-unknown-unknown/release/app.wasm"
+    text = "# head"
+
+    config = Config()
+    engine = Engine(config)
+    store = Store(engine)
+    component = Component(store)
+    result = component.render(store, text)
+    assert result == "<h1>head</h1>\n"
+    print(result)
+```
+
+That's it! Using python is eaiser, but you have to deal with other things.
+I prefer to use rust, cause it's a end to end solution.
+
+
 # Where to get `wasi_snapshot_preview1.wasm`?
 
 The source code of `wasi_snapshot_preview1` is located in the repo of `wit-bindgen`.
