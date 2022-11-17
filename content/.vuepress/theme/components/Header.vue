@@ -39,7 +39,7 @@ export default {
   z-index 12
   position block
   top 0
-  width 100vw
+  // width 100vw
   height $headerHeight
   box-sizing border-box
   background-color $headerBgColor

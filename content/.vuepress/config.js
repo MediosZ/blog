@@ -29,30 +29,30 @@ module.exports = {
   themeConfig: {
     nav: [
       {
-        text: "中文",
+        text: "English",
         link: "/",
       },
       {
-        text: "English",
-        link: "/en/",
+        text: "中文",
+        link: "/zh/",
       },
       {
-        text: "标签",
+        text: "Tags",
         link: "/tag/",
       },
     ],
     directories: [
       {
-        id: "post",
-        dirname: "_posts",
+        id: "en",
+        dirname: "_en",
         path: "/",
       },
       {
-        id: "en",
-        dirname: "_en",
-        path: "/en/",
+        id: "zh",
+        dirname: "_posts",
+        path: "/zh/",
         itemPermalink: "/en/:year/:month/:day/:slug",
-        title: "English",
+        title: "中文",
         layout: "IndexPost",
         itemLayout: "Post",
       },
@@ -60,10 +60,6 @@ module.exports = {
     summaryLength: 150,
     footer: {
       contact: [
-        {
-          type: "gitlab",
-          link: "https://git.mediosz.club/Tric",
-        },
         {
           type: "github",
           link: "https://github.com/MediosZ",
