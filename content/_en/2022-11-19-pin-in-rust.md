@@ -1,7 +1,7 @@
 ---
 title: Why rust needs pin?
 date: 2022-11-19
-tags: 
+tags:
   - Rust
 author: Tricster
 location: Nanjing
@@ -20,20 +20,46 @@ What is `Pin` and why does rust need that?
 
 # What is `Pin`?
 
-In rust, there are two categories of types, depending on whether it is safe to move them around in the memory. 
+In rust, there are two categories of types, depending on whether it is safe to move them around in the memory.
 Most types can be moved around, which means that by doing so, no pointer will be invalidated.
 
-At a high level, a `Pin<P>` ensures that the pointee of any pointer type P has a stable location in memory, meaning it cannot be moved elsewhere and its memory cannot be deallocated until it gets dropped. 
+At a high level, a `Pin<P>` ensures that the pointee of any pointer type P has a stable location in memory, meaning it cannot be moved elsewhere and its memory cannot be deallocated until it gets dropped.
 
 Let's consider a **self-referential structure** like this:
 
-```rust 
+```rust
 pub struct T {
     pub pointer: *const T,
 }
 ```
 
 And what will happen, if we move it?
+
+```rust
+fn main() {
+    let mut a = T {
+        pointer: std::ptr::null(),
+        // _marker: std::marker::PhantomPinned,
+    };
+    a.pointer = &a;
+    println!("{:p}: {:p}", &a, a.pointer);
+    let c = a;
+    println!("{:p}: {:p}", &c, c.pointer);
+}
+```
+
+You will get:
+
+```
+// a: a.pointer
+0x7ffdee3f5b70: 0x7ffdee3f5b70
+// c: c.pointer
+0x7ffdee3f5bd8: 0x7ffdee3f5b70
+```
+
+After moving, `T` is not self-referential anymore. It holds a pointer which points to a data field inside another object.
+
+Here's a another example using `std::mem:swap`:
 
 ```rust
 
@@ -69,9 +95,7 @@ After running the above code, you will get this:
 0x7ffecef36328: 0x7ffecef36320
 ```
 
-After moving, `T` is not self-referential anymore. It holds a pointer which points to a data field inside another object. 
-
-If we use `Pin<T>`, we could not actually obtain a `Box<T>` or `&mut T` to pinned data. Thisimplies that we cannot use operations such as `std::mem::swap` which takes `&mut T` as parameters.
+If we use `Pin<T>`, we could not actually obtain a `Box<T>` or `&mut T` to pinned data. This implies that we cannot use operations such as `std::mem::swap` which takes `&mut T` as parameters.
 
 # Why does Future needs Pin?
 
@@ -102,9 +126,9 @@ struct AsyncFuture {
 
 If `AsyncFuture` is moved, then `read_into_buf_fut.buf` will point to somewhere invaild. That's why we need to **pin the Future**.
 
-
 # References:
 
 1. [Execellent post by couldflare.](https://blog.cloudflare.com/pin-and-unpin-in-rust/)
 2. [Rust Async book.](https://rust-lang.github.io/async-book/04_pinning/01_chapter.html)
 3. [Rust pin doc.](https://doc.rust-lang.org/nightly/core/pin/index.html)
+4. [The Why, What, and How of Pinning in Rust](https://www.youtube.com/watch?v=DkMwYxfSYNQ)
