@@ -97,6 +97,43 @@ After running the above code, you will get this:
 
 If we use `Pin<T>`, we could not actually obtain a `Box<T>` or `&mut T` to pinned data. This implies that we cannot use operations such as `std::mem::swap` which takes `&mut T` as parameters.
 
+Here's an example of using `Pin` to construct `T`.
+
+```rust
+#[derive(Debug)]
+pub struct T {
+    pub pointer: *const T,
+    _marker: std::marker::PhantomPinned,
+}
+
+fn main() {
+    let mut a = T {
+        pointer: std::ptr::null(),
+        _marker: std::marker::PhantomPinned,
+    };
+    a.pointer = &a;
+    let a = std::boxed::Box::pin(a);
+    println!("Box: {:p}, a: {:p}, a.pointer: {:p}", &a, &*a, a.pointer);
+    // we move a into c
+    let c = a;
+    println!("Box: {:p}, c: {:p}, c.pointer: {:p}", &c, &*c, c.pointer);
+}
+```
+
+There are three things to notice: 
+1. We add `std::marker::PhantomPinned` to `T`, which means that `T` can not be unpinned. It's the same with `unsafe impl !Unpin for T{}`.
+2. Since `T` is unpinnable, we can not use `std::pin::Pin::new(&mut a)` to construct the `Pin<&mut T>`. Instead, we use `std::boxed::Box::pin(a)`.
+3. When moving `a` into `c`, what we really do, is move the `Box`, not the `T` inside.
+
+The output is reasonable considering tips above.
+
+```
+Box: 0x7ffd476154b8, a: 0x564cdb83bad0, a.pointer: 0x564cdb83bad0
+Box: 0x7ffd47615530, c: 0x564cdb83bad0, c.pointer: 0x564cdb83bad0
+```
+
+The reason why `std::pin::Pin::new(T)` requires `T` to be unpinnable is pretty clear now. That prevents us from messing up the program by moving `Pin<T>` around when `T` is not unpinnable.
+
 # Why does Future needs Pin?
 
 In Rust, async machinery is implemented as a stackless state machine. It transforms local variables and current state into an anonymous sturct.
