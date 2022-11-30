@@ -117,13 +117,12 @@ fn main() -> Result<()> {
 
 Wait, how can I use the wasm compoennt in Python? It is not that straightforward.
 
-First, we need to install `wasmtime` for python and `wit-bindgen-cli`.
+First, we need to install `wasmtime` for python.
+
+Since [python support in `wit-bindgen-cli` has been moved to `wasmtimepy`](https://github.com/bytecodealliance/wit-bindgen/commit/a6d3e3efbfb7240234023773fead49f24f0d007b), we don't need to install `wit-bindgen-cli` anymore.
 
 ```bash 
-# Install wit-bindgen 
-cargo install --git https://github.com/bytecodealliance/wit-bindgen wit-bindgen-cli
-
-# Install wasmtime for python 
+# Install wasmtime for python.
 pip3 install wasmtime
 ```
 
@@ -146,7 +145,7 @@ std::fs::write("./target/component.wasm", &component)?;
 
 ```bash
 # generate bindings 
-wit-bindgen host wasmtime-py ./target/component.wasm --out-dir python/markdown/
+python -m wasmtime.bindgen ./target/component.wasm --out-dir python/markdown/
 ```
 
 After all of these, we can create a python file to use the component.
@@ -156,7 +155,6 @@ from wasmtime import Engine, Store, Config
 from markdown import Component
 
 if __name__ == "__main__":
-    path = "/home/tric/codebase/component-model-demo/target/wasm32-unknown-unknown/release/app.wasm"
     text = "# head"
 
     config = Config()
